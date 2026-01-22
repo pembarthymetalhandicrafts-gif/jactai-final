@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Finance & Fintech | JactAI Solutions</title>
+    <meta name="description" content="AI solutions for Fintech, Banking, and Trading. Algorithmic trading bots, fraud detection systems, and credit scoring AI.">
+    
+    <meta property="og:title" content="JactAI Finance | Algorithmic Precision">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1000&auto=format&fit=crop">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            charcoal: '#0F0F0F',
+                            card: '#121212',
+                            border: '#262626',
+                            purple: '#7C3AED',
+                            orange: '#F97316',
+                            green: '#10B981',
+                            blue: '#3B82F6',
+                            cyan: '#06B6D4',
+                            text: '#E5E5E5',
+                            muted: '#A3A3A3'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bar-grow': 'barGrow 2s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        barGrow: { '0%': { width: '0%' }, '100%': { width: 'var(--width)' } },
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #E5E5E5; overflow-x: hidden; }
+        *:focus-visible { outline: 2px solid #06B6D4; outline-offset: 4px; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.3);
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+        }
+        
+        .ai-input {
+            background: #0F0F0F;
+            border: 1px solid #262626;
+            color: white;
+            transition: border-color 0.3s;
+        }
+        .ai-input:focus { border-color: #06B6D4; outline: none; }
+        
+        .loading-dots:after {
+            content: '.';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60% { content: '...'; } 100% { content: ''; } }
+
+        #vanta-hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .card-bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            mix-blend-mode: luminosity;
+            transition: opacity 0.3s ease, transform 0.5s ease;
+            z-index: -1;
+        }
+        .glass-card:hover .card-bg-image {
+            opacity: 0.25;
+            transform: scale(1.05);
+        }
+        
+        /* Fallback gradient if image breaks */
+        .img-fallback {
+            background: linear-gradient(45deg, #0f0f0f, #1a1a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="relative selection:bg-brand-cyan selection:text-white">
+
+    <nav class="fixed top-0 w-full z-[100] bg-brand-black/90 backdrop-blur-md border-b border-brand-border/50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 cursor-pointer group">
+                <div class="w-9 h-9 bg-gradient-to-br from-brand-orange to-brand-purple rounded-lg flex items-center justify-center shadow-lg transition-all">
+                    <i data-lucide="cpu" class="text-white w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">Jact<span class="text-brand-orange">AI</span></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+                <a href="index.html#services" class="hover:text-white transition-colors">Solutions</a>
+                <a href="index.html#impact" class="hover:text-white transition-colors">Impact</a>
+                <a href="https://wa.me/918247463118" class="px-5 py-2.5 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-all flex items-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Talk to Expert
+                </a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden text-white"><i data-lucide="menu"></i></button>
+        </div>
+        
+        <div id="mobile-menu" class="hidden bg-brand-charcoal border-t border-brand-border p-6 absolute w-full shadow-2xl z-50">
+            <a href="index.html" class="block py-3 text-lg border-b border-white/5">Home</a>
+            <a href="#features" class="block py-3 text-lg border-b border-white/5">Features</a>
+            <a href="https://wa.me/918247463118" class="block py-3 text-brand-orange font-bold">WhatsApp Us</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+        <section class="relative pt-32 pb-20 px-6 min-h-[90vh] flex items-center overflow-hidden">
+            <div id="vanta-hero"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/90"></div>
+
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center z-10 relative">
+                <div class="text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-xs font-semibold uppercase tracking-widest mb-8">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                        Algorithmic Precision
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
+                        Finance Driven By <br>
+                        <span class="bg-gradient-to-r from-brand-cyan via-white to-blue-500 bg-clip-text text-transparent">Data, Not Speculation.</span>
+                    </h1>
+                    <p class="text-brand-muted text-xl mb-12 max-w-lg leading-relaxed">
+                        Fraud detection APIs, automated credit scoring, and high-frequency trading bots tailored for Indian markets.
+                    </p>
+
+                    <div class="max-w-xl">
+                        <div class="glass-card p-2 rounded-2xl flex flex-col md:flex-row gap-2 relative z-20 shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+                            <input type="text" id="market-input" placeholder="Enter Asset (e.g. 'Nifty 50' or 'Gold')" 
+                                class="ai-input flex-1 px-6 py-4 rounded-xl text-sm placeholder-brand-muted/50 bg-transparent border-transparent focus:bg-brand-black/50">
+                            <button onclick="analyzeMarket()" class="px-6 py-4 bg-brand-cyan text-black font-bold rounded-xl hover:bg-cyan-400 transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                                <i data-lucide="activity" class="w-4 h-4"></i> Analyze Sentiment
+                            </button>
+                        </div>
+                        <div id="market-result" class="hidden mt-4 text-left animate-fade-in">
+                            <div class="bg-brand-charcoal border border-brand-border p-6 rounded-xl shadow-2xl">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest">AI Market Signal</span>
+                                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-brand-muted"></i>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div id="signal-icon" class="w-12 h-12 rounded-lg flex items-center justify-center bg-brand-green/20 text-brand-green border border-brand-green/30">
+                                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h4 id="signal-text" class="text-white font-bold text-lg">Bullish Outlook 📈</h4>
+                                        <p class="text-xs text-brand-muted mt-1">Sentiment: 78% Positive based on recent news & volume.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block animate-float">
+                    <div class="relative w-full aspect-square rounded-3xl overflow-hidden border border-brand-border/50 bg-brand-charcoal/50 backdrop-blur-sm">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                             alt="Fintech Data" 
+                             class="w-full h-full object-cover opacity-60 mix-blend-overlay"
+                             onerror="this.style.display='none'; this.parentElement.classList.add('img-fallback')">
+                        
+                        <div class="absolute inset-0 p-8 flex flex-col justify-center">
+                            <div class="bg-black/80 border border-brand-cyan/30 p-5 rounded-xl shadow-2xl backdrop-blur max-w-sm ml-auto animate-pulse-glow">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"><i data-lucide="shield-check" class="w-4 h-4 text-brand-cyan"></i></div>
+                                        <span class="text-xs font-bold text-white">Fraud Scan</span>
+                                    </div>
+                                    <span class="text-[10px] text-brand-green bg-brand-green/10 px-2 py-1 rounded">SECURE</span>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-1.5 w-full bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-brand-cyan w-[30%] animate-[barGrow_2s_infinite]"></div></div>
+                                    <div class="h-1.5 w-2/3 bg-gray-700 rounded-full overflow-hidden"><div class="h-full bg-brand-cyan w-[60%] animate-[barGrow_3s_infinite]"></div></div>
+                                </div>
+                                <div class="mt-4 text-[10px] text-brand-muted">Scanning 10,000 TPS...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="py-24 px-6 bg-brand-black relative border-t border-brand-border">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Fintech Modules</h2>
+                    <p class="text-brand-muted">Infrastructure for the next generation of finance.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611974765270-ca12586343bb?q=80&w=600&fit=crop" class="card-bg-image" alt="Trading Charts" onerror="this.style.opacity='0'">
+                        
+                        <div class="w-12 h-12 bg-brand-cyan/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-cyan/20 transition-colors backdrop-blur-md border border-brand-cyan/20 relative z-10">
+                            <i data-lucide="candlestick-chart" class="w-6 h-6 text-brand-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 relative z-10">Algo Trading Bots</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed mb-6 relative z-10">Deploy strategies on NSE/BSE automatically. Execute trades based on Technical Indicators or Sentiment.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 relative z-10">
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> Sub-millisecond Latency</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> Backtesting Engine</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=600&fit=crop" class="card-bg-image" alt="Security Code" onerror="this.style.opacity='0'">
+                        
+                        <div class="w-12 h-12 bg-brand-cyan/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-cyan/20 transition-colors backdrop-blur-md border border-brand-cyan/20 relative z-10">
+                            <i data-lucide="shield-alert" class="w-6 h-6 text-brand-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 relative z-10">Fraud Detection AI</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed mb-6 relative z-10">Real-time anomaly detection for UPI and Card transactions. Flag suspicious patterns instantly.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 relative z-10">
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> Pattern Recognition</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> KYC Verification</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-2xl group relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&fit=crop" class="card-bg-image" alt="Credit Score" onerror="this.style.opacity='0'">
+                        
+                        <div class="w-12 h-12 bg-brand-cyan/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-brand-cyan/20 transition-colors backdrop-blur-md border border-brand-cyan/20 relative z-10">
+                            <i data-lucide="users" class="w-6 h-6 text-brand-cyan"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 relative z-10">Alternative Credit Scoring</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed mb-6 relative z-10">Assess creditworthiness using non-traditional data (SMS, utility bills) for the underbanked population.</p>
+                        <ul class="text-sm text-gray-500 space-y-2 relative z-10">
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> NBFC Integration</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-brand-cyan rounded-full"></div> Loan Lifecycle Mgmt</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-[#080808] border-y border-brand-border relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&fit=crop" class="w-full h-full object-cover grayscale" onerror="this.style.opacity='0'">
+            </div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div>
+                        <span class="text-brand-cyan font-bold tracking-wider uppercase text-xs mb-2 block">Security Layer</span>
+                        <h2 class="text-3xl font-bold text-white">Live Transaction Scan</h2>
+                        <p class="text-brand-muted mt-2">See how our AI engine flags risky transactions.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border-brand-border/50">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <p class="text-sm text-brand-muted mb-4">Simulate a transaction:</p>
+                            <div class="space-y-3">
+                                <button onclick="simulateScan('safe')" class="w-full py-3 px-4 bg-brand-charcoal border border-brand-border rounded hover:border-brand-green text-left text-sm text-white flex items-center justify-between group">
+                                    <span>☕ Small Coffee Purchase (₹150)</span>
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-brand-muted group-hover:text-brand-green"></i>
+                                </button>
+                                <button onclick="simulateScan('risky')" class="w-full py-3 px-4 bg-brand-charcoal border border-brand-border rounded hover:border-red-500 text-left text-sm text-white flex items-center justify-between group">
+                                    <span>✈️ High-Value International (₹85,000)</span>
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-brand-muted group-hover:text-red-500"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bg-black/50 p-6 rounded-xl border border-brand-border h-48 flex flex-col items-center justify-center relative overflow-hidden">
+                            <div id="scan-line" class="absolute top-0 w-full h-1 bg-brand-cyan shadow-[0_0_20px_#06B6D4] hidden"></div>
+                            
+                            <div id="scan-idle" class="text-center">
+                                <i data-lucide="shield" class="w-12 h-12 text-brand-muted mx-auto mb-2 opacity-50"></i>
+                                <p class="text-xs text-brand-muted">System Idle</p>
+                            </div>
+
+                            <div id="scan-safe" class="hidden text-center">
+                                <i data-lucide="check-circle" class="w-12 h-12 text-brand-green mx-auto mb-2"></i>
+                                <p class="text-lg font-bold text-brand-green">Approved</p>
+                                <p class="text-xs text-brand-muted">Risk Score: 0.05</p>
+                            </div>
+
+                            <div id="scan-risky" class="hidden text-center">
+                                <i data-lucide="x-circle" class="w-12 h-12 text-red-500 mx-auto mb-2"></i>
+                                <p class="text-lg font-bold text-red-500">Flagged for Review</p>
+                                <p class="text-xs text-brand-muted">Risk Score: 0.98 (Geo-mismatch)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-brand-black relative">
+             <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-cyan/5 rounded-full blur-[100px] -z-10"></div>
+
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center z-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Compounding Power</h2>
+                    <p class="text-brand-muted mb-8 leading-relaxed">
+                        Algorithmic trading removes emotion and executes trades 24/7. Estimate the potential growth of an automated portfolio.
+                    </p>
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-brand-cyan mb-8">
+                        <h4 class="text-white font-bold mb-2">Consistency Key</h4>
+                        <p class="text-sm text-gray-400">Our bots target a steady 2-4% monthly return with strict risk management.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-brand-charcoal p-8 rounded-2xl border border-brand-border shadow-2xl relative z-20">
+                    <div class="mb-6">
+                        <label class="flex justify-between text-xs font-bold text-brand-muted uppercase mb-4">
+                            <span>Initial Capital</span>
+                            <span id="capital-val" class="text-white">₹1,00,000</span>
+                        </label>
+                        <input type="range" id="capital" min="50000" max="1000000" step="10000" value="100000" 
+                            class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer accent-brand-cyan">
+                    </div>
+                    
+                    <div class="mb-8">
+                        <label class="flex justify-between text-xs font-bold text-brand-muted uppercase mb-4">
+                            <span>Monthly Return (Est.)</span>
+                            <span id="return-val" class="text-white">3%</span>
+                        </label>
+                        <input type="range" id="rate" min="1" max="10" step="0.5" value="3" 
+                            class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer accent-brand-cyan">
+                    </div>
+
+                    <div class="bg-brand-black p-6 rounded-xl text-center border border-brand-border/50 shadow-inner">
+                        <p class="text-xs text-brand-muted mb-1 uppercase tracking-widest">Projected Value (1 Year)</p>
+                        <div id="roi-output" class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-blue-400">₹1,42,576</div>
+                        <p class="text-[10px] text-gray-500 mt-2">*Compound Interest Calculation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 bg-gradient-to-b from-brand-black to-[#050505] border-t border-brand-border relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                 <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1200&fit=crop" class="w-full h-full object-cover grayscale mix-blend-overlay" onerror="this.style.opacity='0'">
+            </div>
+            
+            <div class="max-w-3xl mx-auto text-center mb-12 relative z-10">
+                <h2 class="text-3xl font-bold text-white mb-4">Launch Your Fintech</h2>
+                <p class="text-brand-muted">Need a trading bot, a lending app, or a secure payment gateway? Let's build it.</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto glass-card p-8 rounded-2xl border border-brand-cyan/20 shadow-[0_0_50px_rgba(6,182,212,0.1)] relative z-10 backdrop-blur-xl">
+                <form id="fin-form" onsubmit="handleFinSubmit(event)" class="space-y-6">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted uppercase mb-2">Name / Company</label>
+                            <input type="text" id="fin-name" required placeholder="Crypto Ventures" 
+                                class="w-full bg-brand-charcoal border border-brand-border rounded-lg px-4 py-3 text-white focus:border-brand-cyan focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-brand-muted uppercase mb-2">WhatsApp Number</label>
+                            <input type="tel" id="fin-phone" required placeholder="+91 98765 43210" 
+                                class="w-full bg-brand-charcoal border border-brand-border rounded-lg px-4 py-3 text-white focus:border-brand-cyan focus:outline-none transition-colors">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-brand-muted uppercase mb-2">Product Interest</label>
+                        <select id="fin-type" class="w-full bg-brand-charcoal border border-brand-border rounded-lg px-4 py-3 text-white focus:border-brand-cyan focus:outline-none appearance-none">
+                            <option>Algorithmic Trading Bot</option>
+                            <option>Fraud Detection System</option>
+                            <option>Lending/Credit App</option>
+                            <option>Crypto/Web3 Project</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-brand-cyan to-blue-600 text-white rounded-xl font-bold shadow-lg shadow-cyan-900/20 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                        <span>Initialize Project</span>
+                        <i data-lucide="lock" class="w-4 h-4"></i>
+                    </button>
+                    
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black pt-20 pb-10 px-6 border-t border-brand-border">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-sm text-brand-muted">
+            <div class="col-span-2">
+                <span class="text-2xl font-bold text-white block mb-4">Jact<span class="text-brand-orange">AI</span></span>
+                <p class="max-w-xs mb-6">Empowering Bharat with accessible, affordable, and advanced Artificial Intelligence solutions.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Services</h4>
+                <ul class="space-y-3">
+                    <li><a href="web-development.html" class="hover:text-brand-cyan">Web Development</a></li>
+                    <li><a href="agriculture.html" class="hover:text-brand-cyan">AgriTech AI</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-wider">Contact</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 mt-1 text-brand-orange"></i> 13-90/2, Pembarthy, Jangaon</li>
+                    <li class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i> +91 8247463118</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-brand-border text-center text-xs text-gray-600">
+            &copy; 2024 JactAI Solutions.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/918247463118" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-green-300">
+        <i data-lucide="message-circle" class="text-white w-8 h-8"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // 1. VANTA.JS INIT (GLOBE EFFECT)
+        VANTA.GLOBE({
+          el: "#vanta-hero",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0x06b6d4, // Brand Cyan
+          backgroundColor: 0x050505,
+          size: 1.2
+        })
+
+        // 2. MARKET SENTIMENT AI
+        function analyzeMarket() {
+            const input = document.getElementById('market-input').value;
+            const btn = document.querySelector('button[onclick="analyzeMarket()"]');
+            const resultArea = document.getElementById('market-result');
+            
+            if(!input) return;
+
+            btn.innerHTML = `<span class="loading-dots">Analyzing Market Data</span>`;
+
+            setTimeout(() => {
+                const signalIcon = document.getElementById('signal-icon');
+                const signalText = document.getElementById('signal-text');
+                
+                // Random Logic for Demo
+                const isBullish = Math.random() > 0.4; // 60% chance bullish
+                
+                if(isBullish) {
+                    signalIcon.className = "w-12 h-12 rounded-lg flex items-center justify-center bg-brand-green/20 text-brand-green border border-brand-green/30";
+                    signalIcon.innerHTML = `<i data-lucide="trending-up" class="w-6 h-6"></i>`;
+                    signalText.innerText = "Bullish Outlook 📈";
+                } else {
+                    signalIcon.className = "w-12 h-12 rounded-lg flex items-center justify-center bg-red-500/20 text-red-500 border border-red-500/30";
+                    signalIcon.innerHTML = `<i data-lucide="trending-down" class="w-6 h-6"></i>`;
+                    signalText.innerText = "Bearish Correction 📉";
+                }
+                
+                resultArea.classList.remove('hidden');
+                btn.innerHTML = `<i data-lucide="activity" class="w-4 h-4"></i> Analyze Sentiment`;
+                lucide.createIcons();
+            }, 1500);
+        }
+
+        // 3. FRAUD SCANNER
+        function simulateScan(type) {
+            const line = document.getElementById('scan-line');
+            const idle = document.getElementById('scan-idle');
+            const safe = document.getElementById('scan-safe');
+            const risky = document.getElementById('scan-risky');
+
+            // Reset
+            idle.classList.add('hidden');
+            safe.classList.add('hidden');
+            risky.classList.add('hidden');
+            line.classList.remove('hidden');
+            line.classList.add('animate-[scanLine_1s_ease-in-out_infinite]');
+
+            setTimeout(() => {
+                line.classList.add('hidden');
+                line.classList.remove('animate-[scanLine_1s_ease-in-out_infinite]');
+                
+                if(type === 'safe') {
+                    safe.classList.remove('hidden');
+                    safe.classList.add('animate-fade-in');
+                } else {
+                    risky.classList.remove('hidden');
+                    risky.classList.add('animate-fade-in');
+                }
+            }, 1500);
+        }
+
+        // 4. ROI CALCULATOR
+        const capInput = document.getElementById('capital');
+        const rateInput = document.getElementById('rate');
+        const roiOutput = document.getElementById('roi-output');
+
+        function updateROI() {
+            const p = parseInt(capInput.value);
+            const r = parseFloat(rateInput.value);
+            
+            document.getElementById('capital-val').innerText = "₹" + p.toLocaleString();
+            document.getElementById('return-val').innerText = r + "%";
+
+            // Compound Interest Formula: A = P(1 + r/100)^t (t=12 months)
+            const amount = p * Math.pow((1 + r/100), 12);
+            
+            roiOutput.innerText = "₹" + Math.floor(amount).toLocaleString('en-IN');
+        }
+        capInput.addEventListener('input', updateROI);
+        rateInput.addEventListener('input', updateROI);
+
+        // 5. FORM HANDLER
+        function handleFinSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('fin-name').value;
+            const phone = document.getElementById('fin-phone').value;
+            const type = document.getElementById('fin-type').value;
+
+            const msg = `*💸 New Fintech Project Enquiry*
+            
+*Name:* ${name}
+*Phone:* ${phone}
+*Interest:* ${type}
+
+---------------------------
+Sent from Finance Page`;
+
+            const encodedMsg = encodeURIComponent(msg);
+            window.open(`https://wa.me/918247463118?text=${encodedMsg}`, '_blank');
+        }
+    </script>
+</body>
+</html>

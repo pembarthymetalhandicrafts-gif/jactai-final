@@ -1,0 +1,160 @@
+/* --- JACTAI OS: INTERSTELLAR NOIR CORE --- */
+:root {
+    --teal: #2DD4BF;      /* Electric Teal */
+    --space: #050505;     /* Deep Space Black */
+    --surface: #111111;   /* Glass Surface */
+    --glow: rgba(45, 212, 191, 0.4);
+}
+
+/* Base Configuration */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: crosshair; /* Engineering precision feel */
+}
+
+body {
+    background-color: var(--space);
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- THE CRT & SCANLINE LAYER --- */
+/* Mimics high-end hardware monitoring displays */
+.crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 9999;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+/* Moving Scanline */
+.crt::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.27; }
+    5% { opacity: 0.2; }
+    10% { opacity: 0.25; }
+    100% { opacity: 0.27; }
+}
+
+/* --- GLASSMORPHISM & BENTO SYSTEM --- */
+.glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass:hover {
+    background: rgba(45, 212, 191, 0.03);
+    border-color: var(--teal);
+    box-shadow: 0 0 40px -15px var(--teal);
+    transform: translateY(-5px);
+}
+
+/* --- KINETIC UI ELEMENTS --- */
+.jacta-glow {
+    box-shadow: 0 0 30px -5px var(--teal);
+}
+
+/* Custom Scrollbar for OS Feel */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--space);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--teal);
+}
+
+/* --- PAGE TRANSITION ENGINE --- */
+.page-view {
+    display: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.page-active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating Animation for the Comet/AI Spark */
+.float-ai {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+    letter-spacing: -0.05em;
+}
+
+.tracking-extreme {
+    letter-spacing: 0.4em;
+}
+
+/* --- BUTTON SHADERS --- */
+.btn-jacta {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-jacta::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-jacta:hover::after {
+    opacity: 1;
+}
