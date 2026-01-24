@@ -3,7 +3,6 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 module.exports = async (req, res) => {
-  // 1. Standard Headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,POST');
@@ -15,8 +14,8 @@ module.exports = async (req, res) => {
     const { prompt } = req.body;
     if (!process.env.GEMINI_API_KEY) throw new Error("API Key Missing");
 
-    // FIX: Reverting to the most stable model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // FIX: Use the NEW model that matches your NEW engine
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const result = await model.generateContent(prompt);
     const response = await result.response;
