@@ -14,8 +14,9 @@ module.exports = async (req, res) => {
     const { prompt } = req.body;
     if (!process.env.GEMINI_API_KEY) throw new Error("API Key Missing");
 
-    // FIX: Use the NEW model that matches your NEW engine
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    // FIX: Using the "Official Full Name" instead of the nickname
+    // This solves the 404 error
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-001" });
     
     const result = await model.generateContent(prompt);
     const response = await result.response;
