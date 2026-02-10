@@ -3,120 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JactAI - AI for Land & Life</title>
+    <title>JactAI</title>
     <style>
-        /* GLOBAL STYLES (Dark Mode + Green Tech Theme) */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #000; color: #fff; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-
-        /* NAVBAR */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 5%; background: rgba(0,0,0,0.9);
-            border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100;
-        }
-        .logo { font-size: 1.8rem; font-weight: bold; color: #22c55e; /* Green */ }
-        .nav-links a { margin-left: 20px; color: #ccc; transition: 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: #22c55e; }
-
-        /* HERO SECTION */
-        .hero {
-            height: 80vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            background: radial-gradient(circle at center, #112211 0%, #000 70%);
-            padding: 20px;
-        }
-        .hero h1 { font-size: 4rem; margin-bottom: 20px; }
-        .hero h1 span { color: #22c55e; }
-        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 30px; }
-        .btn-main {
-            padding: 15px 40px; background: #22c55e; color: #000;
-            font-weight: bold; border-radius: 30px; font-size: 1.1rem;
-            transition: transform 0.2s;
-        }
-        .btn-main:hover { transform: scale(1.05); background: #16a34a; }
-
-        /* SERVICES SECTION */
-        .services { padding: 80px 5%; display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; }
-        .card {
-            background: #111; padding: 30px; border-radius: 15px;
-            width: 350px; border: 1px solid #333; text-align: left;
-            transition: 0.3s;
-        }
-        .card:hover { border-color: #22c55e; transform: translateY(-5px); }
-        .card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
-        .card p { color: #888; margin-bottom: 20px; }
-        .link-text { color: #22c55e; font-weight: bold; }
-
-        /* CONTACT SECTION (New) */
-        .contact {
-            padding: 60px 5%; background: #0a0a0a; border-top: 1px solid #222;
+        /* SAME ORIGINAL STYLES */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
-        .contact h2 { font-size: 2.5rem; margin-bottom: 40px; color: #fff; }
-        .contact-grid {
-            display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
-            text-align: left; max-width: 800px; margin: 0 auto;
+        nav {
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .contact-item h4 { color: #22c55e; font-size: 1.2rem; margin-bottom: 10px; }
-        .contact-item p { color: #ccc; font-size: 1.1rem; }
+        .logo { color: #22c55e; font-weight: bold; font-size: 1.5rem; }
+        .links a { color: #ccc; text-decoration: none; margin-left: 20px; }
+        .links a:hover { color: #22c55e; }
 
-        /* FOOTER */
-        footer { padding: 20px; text-align: center; color: #555; font-size: 0.9rem; border-top: 1px solid #222; }
+        .hero {
+            padding: 60px 20px;
+        }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        span { color: #22c55e; }
+        p { color: #888; max-width: 600px; margin: 0 auto 40px auto; }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            background: #111;
+            padding: 30px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .card:hover { border-color: #22c55e; transform: translateY(-5px); }
+        .card h2 { color: #22c55e; margin-bottom: 10px; }
+
+        /* NEW FOOTER STYLE (Simple & Clean) */
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        footer p { margin: 5px 0; color: #888; }
+        footer a { color: #22c55e; text-decoration: none; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">JactAI</div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
+        <div class="links">
             <a href="real-estate.html">Real Estate</a>
             <a href="agriculture.html">Agriculture</a>
         </div>
     </nav>
 
-    <header class="hero">
+    <div class="hero">
         <h1>Land & Life, <br><span>Simplified by AI.</span></h1>
-        <p>Instant Real Estate Valuations and Smart Agricultural Advice powered by advanced Artificial Intelligence.</p>
-        <a href="#services" class="btn-main">Get Started</a>
-    </header>
+        <p>Select a service below to get started with our AI tools.</p>
 
-    <section id="services" class="services">
-        <a href="real-estate.html" class="card">
-            <h3>🏢 Real Estate</h3>
-            <p>Get instant property valuations based on current market data for Hyderabad and Telangana.</p>
-            <span class="link-text">Check Value &rarr;</span>
-        </a>
+        <div class="container">
+            <a href="real-estate.html" class="card">
+                <h2>🏢 Real Estate</h2>
+                <p>Check property values in Hyderabad instantly.</p>
+            </a>
 
-        <a href="agriculture.html" class="card">
-            <h3>🌾 Agriculture</h3>
-            <p>Identify crop diseases and get fertilizer recommendations instantly from our AI expert.</p>
-            <span class="link-text">Get Advice &rarr;</span>
-        </a>
-    </section>
-
-    <section class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <h4>📍 Visit Us</h4>
-                <p>H NO:13-90/2, PEMBARTHY,<br>Jangaon, Telangana 506201</p>
-            </div>
-            <div class="contact-item">
-                <h4>📞 Call Us</h4>
-                <p><a href="tel:+918247463118" style="color:#fff;">+91 8247463118</a></p>
-            </div>
-            <div class="contact-item">
-                <h4>📧 Email</h4>
-                <p>support@jactai.com</p>
-            </div>
+            <a href="agriculture.html" class="card">
+                <h2>🌾 Agriculture</h2>
+                <p>Identify crop diseases and get advice.</p>
+            </a>
         </div>
-    </section>
+    </div>
 
     <footer>
-        &copy; 2026 JactAI. All Rights Reserved.
+        <p><strong>JactAI</strong></p>
+        <p>📍 H NO:13-90/2, PEMBARTHY, Jangaon, Telangana 506201</p>
+        <p>📞 <a href="tel:+918247463118">+91 8247463118</a></p>
+        <br>
+        <p>&copy; 2026 JactAI. All rights reserved.</p>
     </footer>
 
 </body>
