@@ -1,851 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth antialiased">
+<html lang='en' class='scroll-smooth'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JactAI | Intelligence. Democratized.</title>
-    <meta name="description" content="AI Solutions for the next generation of Indian Enterprise.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        background: '#030303',
-                        surface: '#0A0A0A',
-                        border: '#1F1F1F',
-                        brand: { orange: '#FF6B00', purple: '#9F2BFF', blue: '#38BDF8', teal: '#2DD4BF', green: '#22C55E' }
-                    },
-                    animation: {
-                        'aurora': 'aurora 10s infinite',
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'glow': 'glow 4s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        aurora: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(255, 107, 0, 0.1)' },
-                            '100%': { boxShadow: '0 0 40px rgba(159, 43, 255, 0.2)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { background-color: #030303; color: #E5E5E5; }
-        
-        /* The Apple-style blurred header */
-        .glass-nav {
-            background: rgba(3, 3, 3, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Dropdown Styling */
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        
-        .group:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Premium Bento Card */
-        .bento-card {
-            background: #0A0A0A;
-            border: 1px solid #1F1F1F;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-        .bento-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-        }
-        
-        .bento-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.04), transparent 40%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        .bento-card:hover::after { opacity: 1; }
-
-        .aurora-bg {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(159,43,255,0.15) 0%, rgba(3,3,3,0) 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            animation: aurora 10s infinite alternate;
-        }
-        .aurora-orange {
-            background: radial-gradient(circle, rgba(255,107,0,0.12) 0%, rgba(3,3,3,0) 70%);
-            right: -10%;
-            top: -10%;
-            animation-delay: -5s;
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #FFFFFF 0%, #A3A3A3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .text-gradient-brand {
-            background: linear-gradient(135deg, #FF6B00 0%, #9F2BFF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-grid {
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 80px 80px;
-            mask-image: radial-gradient(circle at center, black 35%, transparent 80%);
-            pointer-events: none;
-        }
-
-        .hero-panel {
-            background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255,255,255,0.12);
-            box-shadow: 0 20px 80px rgba(0,0,0,0.45);
-        }
-
-        .metric-pill {
-            border: 1px solid rgba(255,255,255,0.1);
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(12px);
-        }
-
-        .pricing-orb {
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(70px);
-            pointer-events: none;
-        }
-
-        .pricing-shell {
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: linear-gradient(135deg, rgba(56,189,248,0.14), rgba(159,43,255,0.14) 45%, rgba(10,10,10,0.98) 100%);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
-        }
-
-        .pricing-shell::before {
-            content: '';
-            position: absolute;
-            inset: 1px;
-            border-radius: 1.4rem;
-            background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-            pointer-events: none;
-        }
-
-        .pricing-card {
-            position: relative;
-            background: rgba(7, 10, 20, 0.72);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 50px rgba(17,24,39,0.35);
-            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(255,255,255,0.18);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 28px 65px rgba(76, 29, 149, 0.35);
-        }
-
-        .pricing-badge {
-            background: linear-gradient(135deg, rgba(250,204,21,0.22), rgba(249,115,22,0.25));
-            border: 1px solid rgba(250,204,21,0.28);
-            color: #fde68a;
-        }
-
-        .feature-pill {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .feature-pill:hover {
-            background: rgba(255,255,255,0.07);
-            transform: translateX(4px);
-        }
-
-        .feature-icon-wrap {
-            background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(159,43,255,0.18));
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .ai-chat-shell {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .chat-bubble-user {
-            background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(59,130,246,0.18));
-        }
-
-        .chat-bubble-assistant {
-            background: rgba(255,255,255,0.06);
-        }
-
-    </style>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>JactAI | Website Development & AI Automation</title>
+  <meta name='description' content='JactAI builds high-performance websites, AI chatbots, and business automation systems that help modern teams grow faster.'>
+  <meta name='theme-color' content='#050816'>
+  <meta property='og:title' content='JactAI | Website Development & AI Automation'>
+  <meta property='og:description' content='JactAI builds high-performance websites, AI chatbots, and business automation systems that help modern teams grow faster.'>
+  <meta property='og:type' content='website'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <link rel='icon' href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='4' y='4' width='18' height='18' rx='5' fill='%23ff7a18'/%3E%3Crect x='26' y='4' width='18' height='18' rx='9' fill='%23f8fafc' fill-opacity='.9'/%3E%3Crect x='4' y='26' width='18' height='18' rx='9' fill='%23f8fafc' fill-opacity='.9'/%3E%3Crect x='26' y='26' width='18' height='18' rx='5' fill='%237c3aed'/%3E%3C/svg%3E">
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+  <link rel='stylesheet' href='site.css'>
 </head>
-<body class="selection:bg-brand-orange selection:text-white" onmousemove="handleMouseMove(event)">
+<body data-page='index' style='--page-accent: #4f8cff'>
+  <a class='skip-link' href='#main'>Skip to content</a>
+  <header class='site-header'>
+    <div class='container header-row'>
+      <a href='index.html' class='brand' aria-label='JactAI home'><svg class='brand-mark' viewBox='0 0 48 48' aria-hidden='true'><rect x='4' y='4' width='18' height='18' rx='5' fill='#ff7a18'/><rect x='26' y='4' width='18' height='18' rx='9' fill='#f8fafc' fill-opacity='.9'/><rect x='4' y='26' width='18' height='18' rx='9' fill='#f8fafc' fill-opacity='.9'/><rect x='26' y='26' width='18' height='18' rx='5' fill='#7c3aed'/></svg><span><strong>JactAI</strong><em>Website Development & AI Automation</em></span></a>
+      <button class='menu-toggle' type='button' aria-expanded='false' aria-controls='site-nav'>Menu</button>
+      <nav id='site-nav' class='site-nav' aria-label='Primary'><a class='nav-link current' href='index.html'>Home</a><a class='nav-link' href='web-development.html'>Website Development</a><a class='nav-link' href='chatbots.html'>AI Chatbots</a><a class='nav-link' href='business.html'>Automation</a><a class='nav-link' href='real-estate.html'>Industries</a><a class='button button-primary nav-cta' href='mailto:hello@jactai.com?subject=Website%20Development%20Inquiry'>Get Your Website Today</a></nav>
+    </div>
+  </header>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 group z-50">
-                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" class="transition-transform duration-500 group-hover:rotate-180">
-                    <rect x="8" y="8" width="10" height="10" rx="2" fill="#FF6B00"/>
-                    <rect x="22" y="8" width="10" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.8"/>
-                    <rect x="8" y="22" width="10" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.8"/>
-                    <rect x="22" y="22" width="10" height="10" rx="2" fill="#9F2BFF"/>
-                </svg>
-                <span class="text-sm font-semibold tracking-wide text-white">Jact<span class="text-white/50">AI</span></span>
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8">
-                <div class="relative group h-16 flex items-center">
-                    <button class="flex items-center gap-1 text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-widest group-hover:text-white">
-                        Solutions
-                        <i data-lucide="chevron-down" class="w-3 h-3 transition-transform group-hover:rotate-180"></i>
-                    </button>
-                    
-                    <div class="dropdown-menu absolute top-14 left-1/2 -translate-x-1/2 w-[600px] bg-[#0A0A0A]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-2xl grid grid-cols-2 gap-8">
-                        
-                        <div>
-                            <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Enterprise Core</h4>
-                            <ul class="space-y-3">
-                                <li><a href="web-development.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="code-2" class="w-4 h-4 text-brand-blue"></i> Web Development</a></li>
-                                <li><a href="finance.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="trending-up" class="w-4 h-4 text-brand-teal"></i> Fintech AI</a></li>
-                                <li><a href="legal.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="scale" class="w-4 h-4 text-indigo-500"></i> Legal Compliance</a></li>
-                                <li><a href="government.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="landmark" class="w-4 h-4 text-yellow-500"></i> GovTech</a></li>
-                                <li><a href="medical.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="stethoscope" class="w-4 h-4 text-teal-500"></i> Healthcare</a></li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Growth Engines</h4>
-                            <ul class="space-y-3">
-                                <li><a href="agriculture.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="sprout" class="w-4 h-4 text-green-500"></i> AgriTech</a></li>
-                                <li><a href="real-estate.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="building" class="w-4 h-4 text-brand-purple"></i> Real Estate</a></li>
-                                <li><a href="education.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="book-open" class="w-4 h-4 text-brand-orange"></i> Education</a></li>
-                                <li><a href="chatbots.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="bot" class="w-4 h-4 text-pink-500"></i> Chatbots</a></li>
-                                <li><a href="professionals.html" class="flex items-center gap-3 text-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all"><i data-lucide="user-check" class="w-4 h-4 text-white"></i> Career AI</a></li>
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-                <a href="#impact" class="text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-widest">Impact</a>
-                <a href="https://wa.me/918247463118" class="text-xs font-bold bg-white text-black px-4 py-2 rounded-full hover:scale-105 transition-transform flex items-center gap-2">
-                    Let's Build <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                </a>
-            </div>
-
-            <button onclick="toggleMenu()" class="md:hidden text-white"><i data-lucide="menu"></i></button>
+  <main id='main'>
+    <section class='hero-section'>
+      <div class='container hero-grid'>
+        <div class='hero-copy reveal'>
+          <span class='eyebrow'>Website Development First</span>
+          <h1>We build professional websites that convert.</h1>
+          <p class='hero-lead'>From landing pages to enterprise portals, JactAI ships fast, conversion-focused digital experiences with AI automation built in.</p>
+          <div class='button-row'>
+            <a class='button button-primary' href='mailto:hello@jactai.com?subject=Website%20Development%20Inquiry'>Get Your Website Today</a>
+            <a class='button button-secondary' href='web-development.html'>Explore Website Development</a>
+          </div>
+          <ul class='stat-row' aria-label='Key outcomes'>
+            <li><strong>72h</strong><span>prototype turnaround</span></li><li><strong>95+</strong><span>mobile performance target</span></li><li><strong>24/7</strong><span>AI lead capture</span></li>
+          </ul>
         </div>
-
-        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-surface border-b border-white/10 p-6 md:hidden">
-            <div class="flex flex-col gap-4">
-                <a href="web-development.html" class="text-gray-300 py-2 border-b border-white/5">Web Dev</a>
-                <a href="agriculture.html" class="text-gray-300 py-2 border-b border-white/5">Agriculture</a>
-                <a href="finance.html" class="text-gray-300 py-2 border-b border-white/5">Finance</a>
-                <a href="chatbots.html" class="text-gray-300 py-2 border-b border-white/5">Chatbots</a>
-                <a href="#services" class="text-brand-orange font-bold mt-2">View All Services</a>
+        <div class='hero-visual reveal'>
+          <div class='visual-shell'>
+            <div class='visual-badge'>We Build Professional Websites</div>
+            <div class='browser-chrome'><span></span><span></span><span></span></div>
+            <div class='visual-layout'>
+              <div class='visual-panel visual-panel-highlight'>
+                <p>Homepage systems</p>
+                <strong>SEO-ready messaging, premium UI, mobile-first layout</strong>
+              </div>
+              <div class='visual-panel-row'>
+                <div class='visual-panel'><p>Lead capture</p><strong>Forms + chatbot + CTA ribbons</strong></div>
+                <div class='visual-panel'><p>Performance</p><strong>Lean CSS, semantic HTML, fewer blockers</strong></div>
+              </div>
+              <div class='visual-panel visual-panel-soft'><p>Brand consistency</p><strong>Unified logo, spacing, colors, and footer across every page.</strong></div>
             </div>
+          </div>
         </div>
-    </nav>
-
-    <section class="relative pt-40 pb-32 px-6 min-h-screen flex flex-col justify-center overflow-hidden">
-        <div class="hero-grid"></div>
-        <div class="aurora-bg top-0 left-0"></div>
-        <div class="aurora-bg aurora-orange"></div>
-
-        <div class="max-w-5xl mx-auto text-center z-10">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 animate-fade-in-up">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></span>
-                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">System Online</span>
-            </div>
-            
-            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-6 leading-[0.9]">
-                <span class="text-gradient block">Intelligence.</span>
-                <span class="text-gradient-brand">Democratized.</span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 font-light tracking-wide leading-relaxed">
-                We build production-grade AI products for Indian businesses—combining automation, analytics, and human-centered design into one dependable stack.
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
-                <a href="#services" class="px-6 py-3 bg-white text-black rounded-full text-sm font-semibold hover:scale-105 transition-transform inline-flex items-center gap-2">
-                    Explore Services <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
-                <a href="#impact" class="px-6 py-3 rounded-full text-sm font-semibold border border-white/20 text-white hover:bg-white/10 transition-colors inline-flex items-center gap-2">
-                    See Client Impact <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
-                </a>
-            </div>
-
-            <div class="hero-panel rounded-2xl p-3 mb-10 max-w-3xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left">
-                    <div class="metric-pill rounded-xl p-4">
-                        <p class="text-[11px] uppercase tracking-wider text-gray-500 mb-1">Automation Workflows</p>
-                        <p class="text-xl font-bold text-white">35+</p>
-                    </div>
-                    <div class="metric-pill rounded-xl p-4">
-                        <p class="text-[11px] uppercase tracking-wider text-gray-500 mb-1">Industry Verticals</p>
-                        <p class="text-xl font-bold text-white">10</p>
-                    </div>
-                    <div class="metric-pill rounded-xl p-4">
-                        <p class="text-[11px] uppercase tracking-wider text-gray-500 mb-1">Avg. Response Gain</p>
-                        <p class="text-xl font-bold text-white">3.4x</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative max-w-lg mx-auto group">
-                <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-orange to-brand-purple rounded-2xl opacity-30 group-hover:opacity-70 blur transition duration-500"></div>
-                <div class="relative bg-surface rounded-2xl flex items-center p-2 pl-5 border border-white/10">
-                    <i data-lucide="sparkles" class="w-5 h-5 text-gray-400 group-hover:text-brand-orange transition-colors"></i>
-                    <input type="text" id="ai-router" placeholder="Ask JactAI... (e.g. 'Build a Farm App')" 
-                        class="w-full bg-transparent border-none text-white px-4 py-3 focus:outline-none placeholder-gray-600 text-sm font-medium"
-                        onkeydown="checkEnter(event)">
-                    <button onclick="routeUser()" class="p-2 bg-white/10 rounded-xl hover:bg-white/20 transition-colors">
-                        <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
-                    </button>
-                </div>
-                <div class="mt-4 flex justify-center gap-4 text-[10px] text-gray-600 font-mono">
-                    <span>CMD + K TO SEARCH</span>
-                    <span>TRY: "FINANCE BOT"</span>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-
-    <section id="website-pricing" class="py-20 md:py-24 px-6 relative border-t border-white/5 overflow-hidden">
-        <div class="pricing-orb w-72 h-72 bg-brand-blue/20 top-10 left-0"></div>
-        <div class="pricing-orb w-80 h-80 bg-brand-purple/20 bottom-0 right-0"></div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="pricing-shell rounded-[1.6rem] p-1">
-                <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 rounded-[1.5rem] bg-[#05070F]/90 p-6 md:p-8 lg:p-10">
-                    <div class="pricing-card rounded-[1.5rem] p-6 md:p-8 lg:p-10">
-                        <div class="flex flex-wrap items-center gap-3 mb-6">
-                            <span class="pricing-badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.22em]">
-                                <i data-lucide="sparkles" class="w-4 h-4"></i>
-                                Most Popular Package
-                            </span>
-                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] uppercase tracking-[0.22em] text-gray-300 font-semibold">
-                                Trusted by Local Businesses & Startups
-                            </span>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
-                            <div>
-                                <p class="text-sm uppercase tracking-[0.25em] text-brand-blue font-semibold mb-3">Website Development Pricing</p>
-                                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">Website Development Package</h2>
-                                <p class="text-lg text-gray-300 max-w-2xl">Professional AI-Powered Website for Your Business</p>
-                            </div>
-                            <div class="md:text-right">
-                                <p class="text-sm uppercase tracking-[0.22em] text-gray-500 mb-2">Starting at</p>
-                                <div class="text-5xl md:text-6xl font-black text-white leading-none">₹19,999</div>
-                                <p class="text-sm text-brand-orange mt-3 font-semibold">Limited Time Offer for Early Businesses</p>
-                            </div>
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-3 mb-8">
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-blue"></i></span><div><h3 class="text-sm font-semibold text-white">Responsive Mobile + Desktop Design</h3><p class="text-xs text-gray-400 mt-1">Premium layouts tuned for every screen.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="search-check" class="w-5 h-5 text-brand-teal"></i></span><div><h3 class="text-sm font-semibold text-white">SEO Optimized Structure</h3><p class="text-xs text-gray-400 mt-1">Built for discoverability and indexed growth.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i></span><div><h3 class="text-sm font-semibold text-white">Fast Loading Performance</h3><p class="text-xs text-gray-400 mt-1">Optimized assets and lean architecture.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="message-square-share" class="w-5 h-5 text-green-400"></i></span><div><h3 class="text-sm font-semibold text-white">WhatsApp & Contact Integration</h3><p class="text-xs text-gray-400 mt-1">Direct inquiries routed to your team instantly.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-5 h-5 text-brand-purple"></i></span><div><h3 class="text-sm font-semibold text-white">AI Chatbot (ChatGPT / Gemini Ready)</h3><p class="text-xs text-gray-400 mt-1">Qualify prospects with automated AI conversations.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="layout-dashboard" class="w-5 h-5 text-pink-400"></i></span><div><h3 class="text-sm font-semibold text-white">Admin Panel (Easy Updates)</h3><p class="text-xs text-gray-400 mt-1">Simple content management for your team.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-5 h-5 text-indigo-300"></i></span><div><h3 class="text-sm font-semibold text-white">Free 1-Year Hosting Guidance</h3><p class="text-xs text-gray-400 mt-1">Launch smoothly with expert deployment support.</p></div></div>
-                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="form-input" class="w-5 h-5 text-brand-orange"></i></span><div><h3 class="text-sm font-semibold text-white">Lead Capture Forms</h3><p class="text-xs text-gray-400 mt-1">Capture serious demand from the first visit.</p></div></div>
-                        </div>
-
-                        <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-4 items-center">
-                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                                <p class="text-xs uppercase tracking-[0.22em] text-gray-500 mb-2">Client proof</p>
-                                <p class="text-white text-sm md:text-base font-medium mb-3">“The new JactAI website funnel gave us better-quality leads in the first week.”</p>
-                                <p class="text-xs text-gray-400">Testimonial placeholder · Add real client quote before launch</p>
-                            </div>
-                            <div class="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
-                                <a href="#pricing-lead-form" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white text-black text-sm font-bold hover:scale-[1.02] transition-transform" onclick="focusPricingForm(event)">Get Started Now <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                                <button type="button" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl border border-white/15 bg-white/5 text-white text-sm font-semibold hover:bg-white/10 transition-colors" onclick="scrollToAssistant()">Talk to AI Assistant <i data-lucide="messages-square" class="w-4 h-4"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div class="pricing-card rounded-[1.5rem] p-6 md:p-8">
-                            <div class="flex items-start justify-between gap-4 mb-6">
-                                <div>
-                                    <p class="text-sm uppercase tracking-[0.24em] text-brand-purple font-semibold mb-2">Lead Capture Automation</p>
-                                    <h3 class="text-2xl font-bold text-white">Book your project in minutes</h3>
-                                </div>
-                                <div class="w-12 h-12 rounded-2xl bg-brand-purple/15 border border-brand-purple/20 flex items-center justify-center shrink-0">
-                                    <i data-lucide="rocket" class="w-5 h-5 text-brand-purple"></i>
-                                </div>
-                            </div>
-                            <form id="pricing-lead-form" class="space-y-4" onsubmit="submitPricingLead(event)">
-                                <div>
-                                    <label for="lead-name" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Your Name</label>
-                                    <input id="lead-name" name="name" type="text" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="Enter your full name">
-                                </div>
-                                <div>
-                                    <label for="lead-phone" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Phone Number</label>
-                                    <input id="lead-phone" name="phone" type="tel" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="+91 98765 43210">
-                                </div>
-                                <div>
-                                    <label for="lead-requirement" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Project Requirement</label>
-                                    <textarea id="lead-requirement" name="requirement" rows="4" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="Tell us what you want to build"></textarea>
-                                </div>
-                                <button id="pricing-submit" type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-purple px-5 py-4 text-sm font-bold text-white hover:opacity-95 transition-opacity">
-                                    Capture My Requirement <i data-lucide="send" class="w-4 h-4"></i>
-                                </button>
-                                <p id="pricing-form-status" class="text-sm text-gray-400 min-h-[1.25rem]"></p>
-                            </form>
-                        </div>
-
-                        <div id="ai-assistant-panel" class="pricing-card rounded-[1.5rem] p-6 md:p-8">
-                            <div class="flex items-center justify-between gap-4 mb-6">
-                                <div>
-                                    <p class="text-sm uppercase tracking-[0.24em] text-brand-blue font-semibold mb-2">AI Sales Assistant</p>
-                                    <h3 class="text-2xl font-bold text-white">Pre-qualify leads with ChatGPT or Gemini</h3>
-                                </div>
-                                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] text-gray-300 uppercase tracking-[0.2em]">
-                                    <span class="w-2 h-2 rounded-full bg-green-400"></span>
-                                    Live-ready
-                                </div>
-                            </div>
-                            <div id="assistant-messages" class="ai-chat-shell rounded-3xl p-4 space-y-3 h-64 overflow-y-auto mb-4">
-                                <div class="chat-bubble-assistant rounded-2xl p-3 text-sm text-gray-200">Hi! I can recommend the best website package and collect your business requirement.</div>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3 mb-3">
-                                <input id="assistant-input" type="text" class="flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-purple" placeholder="Ask about timeline, features, or integrations">
-                                <button type="button" id="assistant-send" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors" onclick="sendAssistantMessage()">Ask AI <i data-lucide="sparkles" class="w-4 h-4"></i></button>
-                            </div>
-                            <p id="assistant-status" class="text-xs text-gray-500">Powered by OpenAI or Gemini. Leads can be saved to Supabase, Firebase, or Google Sheets.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class='announcement-bar'>
+      <div class='container announcement-inner'>
+        <p><strong>Website Development is our flagship service.</strong> Every page now supports clearer positioning, stronger CTAs, and a more consistent brand experience.</p>
+      </div>
     </section>
 
-    <section id="services" class="py-32 px-6 bg-background relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
-                <div>
-                    <h2 class="text-4xl font-bold text-white tracking-tight mb-2">The Ecosystem</h2>
-                    <p class="text-gray-500">Five pillars of modern infrastructure.</p>
-                </div>
-                <div class="text-right hidden md:block">
-                    <p class="text-xs font-mono text-gray-600">SCROLL TO EXPLORE</p>
-                    <i data-lucide="arrow-down" class="w-4 h-4 text-gray-600 ml-auto mt-2 animate-bounce"></i>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 h-auto md:h-[600px]">
-                
-                <a href="web-development.html" class="bento-card col-span-1 md:col-span-2 row-span-2 rounded-3xl p-8 flex flex-col justify-between group">
-                    <div class="absolute inset-0 bg-gradient-to-b from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div class="relative z-10">
-                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6">
-                            <i data-lucide="code-2" class="text-brand-blue w-5 h-5"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-2">Web Development</h3>
-                        <p class="text-gray-500 text-sm max-w-xs">High-performance Next.js architectures. Speed is a feature.</p>
-                    </div>
-                    <div class="relative z-10 flex items-center gap-2 text-xs font-bold text-white opacity-50 group-hover:opacity-100 transition-opacity">
-                        <span>EXPLORE STACK</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
-                    </div>
-                    <div class="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-brand-blue/20 to-transparent blur-3xl"></div>
-                </a>
-
-                <a href="finance.html" class="bento-card col-span-1 md:col-span-1 row-span-2 rounded-3xl p-8 flex flex-col justify-between group">
-                    <div class="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
-                        <i data-lucide="trending-up" class="w-24 h-24 text-brand-teal"></i>
-                    </div>
-                    <div>
-                        <div class="w-10 h-10 rounded-full bg-brand-teal/10 flex items-center justify-center mb-6">
-                            <i data-lucide="activity" class="text-brand-teal w-5 h-5"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2">Fintech</h3>
-                        <p class="text-gray-500 text-xs">Algo-trading & Fraud Detection.</p>
-                    </div>
-                    <div class="h-20 w-full flex items-end gap-1 opacity-50 group-hover:opacity-100 transition-opacity">
-                        <div class="w-full bg-brand-teal h-[40%] rounded-t"></div>
-                        <div class="w-full bg-brand-teal h-[70%] rounded-t"></div>
-                        <div class="w-full bg-brand-teal h-[50%] rounded-t"></div>
-                        <div class="w-full bg-brand-teal h-[90%] rounded-t"></div>
-                    </div>
-                </a>
-
-                <a href="agriculture.html" class="bento-card rounded-3xl p-6 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <i data-lucide="sprout" class="text-brand-green w-6 h-6"></i>
-                        <span class="text-[10px] font-mono text-gray-500">BHARAT</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">AgriTech</h3>
-                    <p class="text-gray-500 text-xs mt-1">Disease AI.</p>
-                </a>
-
-                <a href="legal.html" class="bento-card rounded-3xl p-6 group">
-                    <div class="flex justify-between items-start mb-4">
-                        <i data-lucide="scale" class="text-brand-purple w-6 h-6"></i>
-                        <span class="text-[10px] font-mono text-gray-500">SECURE</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Legal</h3>
-                    <p class="text-gray-500 text-xs mt-1">Auto-Drafting.</p>
-                </a>
-
-                <a href="real-estate.html" class="bento-card col-span-1 md:col-span-2 lg:col-span-2 rounded-3xl p-6 flex items-center justify-between group">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <i data-lucide="building" class="text-brand-purple w-5 h-5"></i>
-                            <span class="text-xs font-bold text-brand-purple">PROPTECH</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Real Estate AI</h3>
-                        <p class="text-gray-500 text-xs mt-1">Valuation & Lead Bots.</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
-                        <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
-                    </div>
-                </a>
-
-                <a href="chatbots.html" class="bento-card rounded-3xl p-6 group bg-brand-orange/5 border-brand-orange/20">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div class="w-20 h-20 bg-brand-orange/20 blur-xl rounded-full"></div>
-                    </div>
-                    <div class="relative z-10 text-center">
-                        <i data-lucide="bot" class="text-brand-orange w-8 h-8 mx-auto mb-2"></i>
-                        <h3 class="text-sm font-bold text-white">Chatbots</h3>
-                    </div>
-                </a>
-
-                <a href="education.html" class="bento-card rounded-3xl p-6 group">
-                    <div class="text-center">
-                        <h3 class="text-3xl font-bold text-white mb-1 group-hover:text-brand-orange transition-colors">A+</h3>
-                        <p class="text-xs text-gray-500">Education</p>
-                    </div>
-                </a>
-
-            </div>
+    <section class='section'>
+      <div class='container'>
+        <div class='section-heading reveal'>
+          <span class='eyebrow'>Service stack</span>
+          <h2>Built to turn visitors into conversations, demos, and revenue.</h2>
+          <p>We standardized the experience across the site while making website development the center of the narrative.</p>
         </div>
+        <div class='card-grid'>
+          <article class='service-card reveal'><span class='card-kicker'>Solution 1</span><h3>Website Development</h3><p>Conversion-ready marketing sites, portals, and product experiences designed to sell.</p><div class='card-note'>Launch faster with strategy, copy, UX, and development in one sprint.</div></article><article class='service-card reveal'><span class='card-kicker'>Solution 2</span><h3>AI Chatbots</h3><p>Automate FAQs, lead qualification, appointment booking, and support across WhatsApp and web.</p><div class='card-note'>Turn your website into a round-the-clock sales and service channel.</div></article><article class='service-card reveal'><span class='card-kicker'>Solution 3</span><h3>Business Automation</h3><p>Connect CRM, forms, workflows, analytics, and internal ops into one reliable system.</p><div class='card-note'>Reduce manual work and give your team a clean operating system for growth.</div></article>
+        </div>
+      </div>
     </section>
 
-    <section id="impact" class="py-32 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Impact in Numbers.</h2>
-                    <p class="text-gray-500 text-lg mb-8">We measure success in efficiency gained and revenue generated for our clients.</p>
-                    
-                    <div class="space-y-8">
-                        <div>
-                            <div class="text-3xl font-bold text-white mb-1">₹4.5 Lakhs</div>
-                            <div class="text-sm text-gray-600 uppercase tracking-wider">Monthly Revenue Generated for Weavers</div>
-                        </div>
-                        <div class="w-full h-px bg-white/10"></div>
-                        <div>
-                            <div class="text-3xl font-bold text-white mb-1">40 Hours</div>
-                            <div class="text-sm text-gray-600 uppercase tracking-wider">Saved Weekly per HR Manager</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-brand-orange to-brand-purple blur-[100px] opacity-20"></div>
-                    <div class="glass-nav rounded-3xl p-8 border border-white/10 relative">
-                        <h3 class="text-xl font-bold text-white mb-4">"JactAI transformed how we operate."</h3>
-                        <p class="text-gray-400 italic mb-6">"The automated bot didn't just save time; it filtered out 90% of spam leads. We only talk to serious buyers now."</p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gray-800"></div>
-                            <div>
-                                <div class="text-sm font-bold text-white">Rajesh Kumar</div>
-                                <div class="text-xs text-gray-600">CEO, Hyderabad Tech</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class='section section-alt'>
+      <div class='container split-grid'>
+        <div class='section-heading reveal'>
+          <span class='eyebrow'>Proof points</span>
+          <h2>Why businesses choose JactAI for website development</h2>
+          <p>Cleaner UX, stronger brand consistency, and more visible website-development calls to action across the journey.</p>
         </div>
+        <div class='proof-grid'>
+          <article class='proof-card reveal'><h3>Consistent brand system</h3><p>Unified logo, typography, spacing, CTAs, and footer messaging across the entire site.</p></article><article class='proof-card reveal'><h3>SEO-ready structure</h3><p>Semantic headings, metadata, internal linking, alt text, and clear keyword targeting for web development services.</p></article><article class='proof-card reveal'><h3>Performance-minded execution</h3><p>Lean CSS/JS, lazy visuals, reduced third-party noise, and responsive layouts tuned for Core Web Vitals.</p></article>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                
-                <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-                        <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Contact Us</span>
-                    </div>
-                    
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Visit Our HQ.</h2>
-                    <p class="text-gray-500 text-lg mb-8">Ready to bring advanced AI infrastructure to your business? Let's connect.</p>
-
-                    <div class="space-y-8">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center shrink-0">
-                                <i data-lucide="map-pin" class="text-brand-orange w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">Headquarters</h4>
-                                <p class="text-gray-500 text-sm leading-relaxed">H NO:13-90/2, PEMBARTHY,<br>Jangaon, Telangana 506201</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-brand-purple/10 border border-brand-purple/20 flex items-center justify-center shrink-0">
-                                <i data-lucide="phone" class="text-brand-purple w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-bold mb-1">Direct Line</h4>
-                                <p class="text-gray-500 text-sm">
-                                    <a href="tel:+918247463118" class="hover:text-white transition-colors">+91 8247463118</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="relative w-full h-[400px] rounded-3xl overflow-hidden border border-white/10 group">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-orange/20 to-brand-purple/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none duration-500"></div>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30424.16116848243!2d79.1350694!3d17.6006198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a332a58b22a07d3%3A0xc0fb1df815c446bd!2sPembarthi%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; filter: invert(100%) hue-rotate(180deg) contrast(90%);" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        class="relative z-0">
-                    </iframe>
-                </div>
-
-            </div>
+    <section class='section'>
+      <div class='container cta-banner reveal'>
+        <div>
+          <span class='eyebrow'>Primary CTA</span>
+          <h2>Need a website that looks premium and converts from day one?</h2>
+          <p>We combine strategy, design, development, and AI automation into one streamlined engagement.</p>
         </div>
+        <div class='button-row'>
+          <a class='button button-primary' href='mailto:hello@jactai.com?subject=Website%20Development%20Inquiry'>Book a Website Project</a>
+          <a class='button button-secondary' href='chatbots.html'>Add an AI Chatbot</a>
+        </div>
+      </div>
     </section>
 
-    <footer class="border-t border-white/5 bg-[#050505] py-20 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex items-center gap-2">
-                <div class="w-6 h-6 bg-white rounded-sm"></div>
-                <span class="text-xl font-bold text-white tracking-tight">JactAI</span>
-            </div>
-            <div class="text-gray-600 text-sm">
-                &copy; 2024 JactAI Solutions. Designed in India.
-            </div>
-            <div class="flex gap-6">
-                <a href="#" class="text-gray-600 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="#" class="text-gray-600 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                <a href="https://wa.me/918247463118" class="text-gray-600 hover:text-brand-orange transition-colors"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
-            </div>
+    <section class='section section-tight'>
+      <div class='container'>
+        <div class='section-heading reveal'>
+          <span class='eyebrow'>Explore pages</span>
+          <h2>Consistent experiences across every JactAI page.</h2>
         </div>
-    </footer>
+        <div class='mini-grid'>
+          <a class='mini-link' href='real-estate.html'>Real Estate</a><a class='mini-link' href='education.html'>Education</a><a class='mini-link' href='finance.html'>Finance</a><a class='mini-link' href='government.html'>Government</a><a class='mini-link' href='legal.html'>Legal</a><a class='mini-link' href='medical.html'>Medical</a><a class='mini-link' href='professionals.html'>Professionals</a><a class='mini-link' href='agriculture.html'>Agriculture</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        lucide.createIcons();
+  <footer class='site-footer'>
+    <div class='container footer-grid'>
+      <div>
+        <a href='index.html' class='brand brand-footer' aria-label='JactAI home'><svg class='brand-mark' viewBox='0 0 48 48' aria-hidden='true'><rect x='4' y='4' width='18' height='18' rx='5' fill='#ff7a18'/><rect x='26' y='4' width='18' height='18' rx='9' fill='#f8fafc' fill-opacity='.9'/><rect x='4' y='26' width='18' height='18' rx='9' fill='#f8fafc' fill-opacity='.9'/><rect x='26' y='26' width='18' height='18' rx='5' fill='#7c3aed'/></svg><span><strong>JactAI</strong><em>Professional websites, AI chatbots, and automation systems.</em></span></a>
+        <p class='footer-copy'>We help ambitious teams launch modern websites with clear messaging, sharp UX, and scalable digital infrastructure.</p>
+      </div>
+      <div>
+        <h2>Services</h2>
+        <ul class='footer-links'>
+          <li><a href='web-development.html'>Website Development</a></li>
+          <li><a href='chatbots.html'>AI Chatbots</a></li>
+          <li><a href='business.html'>Business Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Industries</h2>
+        <ul class='footer-links'>
+          <li><a href='real-estate.html'>Real Estate</a></li><li><a href='education.html'>Education</a></li><li><a href='finance.html'>Finance</a></li><li><a href='government.html'>Government</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul class='footer-links'>
+          <li><a href='mailto:hello@jactai.com?subject=Website%20Development%20Inquiry'>hello@jactai.com</a></li>
+          <li><a href='web-development.html'>Get Your Website Today</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
-        // Mouse move effect for Bento Cards
-        function handleMouseMove(e) {
-            for(const card of document.getElementsByClassName("bento-card")) {
-                const rect = card.getBoundingClientRect(),
-                      x = e.clientX - rect.left,
-                      y = e.clientY - rect.top;
-                card.style.setProperty("--mouse-x", `${x}px`);
-                card.style.setProperty("--mouse-y", `${y}px`);
-            };
-        }
-
-        function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        // Router Logic
-        function checkEnter(event) {
-            if(event.key === 'Enter') routeUser();
-        }
-
-        function routeUser() {
-            const input = document.getElementById('ai-router').value.toLowerCase();
-            const btn = document.querySelector('button[onclick="routeUser()"]');
-            
-            if(!input) return;
-
-            btn.innerHTML = `<i data-lucide="loader" class="w-4 h-4 animate-spin"></i>`;
-            lucide.createIcons();
-
-            setTimeout(() => {
-                let target = '#services';
-                if(input.includes('price') || input.includes('package') || input.includes('website')) target = '#website-pricing';
-                else if(input.includes('farm') || input.includes('agri')) target = 'agriculture.html';
-                else if(input.includes('money') || input.includes('fin')) target = 'finance.html';
-                else if(input.includes('web') || input.includes('app')) target = 'web-development.html';
-                else if(input.includes('doc') || input.includes('health')) target = 'medical.html';
-                else if(input.includes('law') || input.includes('legal')) target = 'legal.html';
-                else if(input.includes('teach') || input.includes('school')) target = 'education.html';
-                else if(input.includes('bot')) target = 'chatbots.html';
-                else if(input.includes('job') || input.includes('career')) target = 'professionals.html';
-                else if(input.includes('house') || input.includes('prop')) target = 'real-estate.html';
-                else if(input.includes('govt')) target = 'government.html';
-
-                window.location.href = target;
-            }, 800);
-        }
-
-        function focusPricingForm(event) {
-            if (event) event.preventDefault();
-            const nameInput = document.getElementById('lead-name');
-            document.getElementById('pricing-lead-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(() => nameInput?.focus(), 400);
-        }
-
-        function scrollToAssistant() {
-            const panel = document.getElementById('ai-assistant-panel');
-            panel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            setTimeout(() => document.getElementById('assistant-input')?.focus(), 400);
-        }
-
-        async function submitPricingLead(event) {
-            event.preventDefault();
-            const form = event.target;
-            const status = document.getElementById('pricing-form-status');
-            const button = document.getElementById('pricing-submit');
-            const payload = {
-                package: 'Website Development Package',
-                source: 'homepage-pricing-section',
-                name: form.name.value.trim(),
-                phone: form.phone.value.trim(),
-                requirement: form.requirement.value.trim()
-            };
-
-            if (!payload.name || !payload.phone || !payload.requirement) {
-                status.textContent = 'Please fill in your name, phone number, and project requirement.';
-                status.className = 'text-sm text-red-400 min-h-[1.25rem]';
-                return;
-            }
-
-            button.disabled = true;
-            button.innerHTML = 'Submitting...';
-            status.textContent = 'Sending your request to our team...';
-            status.className = 'text-sm text-gray-400 min-h-[1.25rem]';
-
-            try {
-                const response = await fetch('/api/website-package-lead', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                if (!response.ok) throw new Error(result.error || 'Unable to submit your request right now.');
-
-                status.textContent = result.message || 'Thanks! Our team will contact you shortly.';
-                status.className = 'text-sm text-green-400 min-h-[1.25rem]';
-                form.reset();
-            } catch (error) {
-                status.textContent = error.message;
-                status.className = 'text-sm text-red-400 min-h-[1.25rem]';
-            } finally {
-                button.disabled = false;
-                button.innerHTML = 'Capture My Requirement <i data-lucide="send" class="w-4 h-4"></i>';
-                lucide.createIcons();
-            }
-        }
-
-        function appendAssistantMessage(role, content) {
-            const container = document.getElementById('assistant-messages');
-            const message = document.createElement('div');
-            message.className = `${role === 'user' ? 'chat-bubble-user ml-auto text-white' : 'chat-bubble-assistant text-gray-200'} rounded-2xl p-3 text-sm max-w-[85%]`;
-            message.textContent = content;
-            container.appendChild(message);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        async function sendAssistantMessage() {
-            const input = document.getElementById('assistant-input');
-            const status = document.getElementById('assistant-status');
-            const sendButton = document.getElementById('assistant-send');
-            const prompt = input.value.trim();
-
-            if (!prompt) return;
-
-            appendAssistantMessage('user', prompt);
-            input.value = '';
-            sendButton.disabled = true;
-            status.textContent = 'Thinking with AI...';
-
-            try {
-                const response = await fetch('/api/website-package-assistant', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        prompt,
-                        leadContext: {
-                            package: 'Website Development Package',
-                            price: '₹19,999'
-                        }
-                    })
-                });
-                const result = await response.json();
-                if (!response.ok) throw new Error(result.error || 'The assistant is temporarily unavailable.');
-
-                appendAssistantMessage('assistant', result.output || 'Our AI assistant will help you shortly.');
-                status.textContent = result.provider ? `Response generated via ${result.provider}.` : 'Response generated successfully.';
-            } catch (error) {
-                appendAssistantMessage('assistant', 'Thanks! A human strategist can follow up with pricing and project details on WhatsApp.');
-                status.textContent = error.message;
-            } finally {
-                sendButton.disabled = false;
-            }
-        }
-
-        document.getElementById('assistant-input')?.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                sendAssistantMessage();
-            }
-        });
-    </script>
+  <script src='site.js' defer></script>
 </body>
 </html>
