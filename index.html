@@ -150,6 +150,82 @@
             background: rgba(255,255,255,0.03);
             backdrop-filter: blur(12px);
         }
+
+        .pricing-orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(70px);
+            pointer-events: none;
+        }
+
+        .pricing-shell {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+            background: linear-gradient(135deg, rgba(56,189,248,0.14), rgba(159,43,255,0.14) 45%, rgba(10,10,10,0.98) 100%);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .pricing-shell::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            border-radius: 1.4rem;
+            background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
+            pointer-events: none;
+        }
+
+        .pricing-card {
+            position: relative;
+            background: rgba(7, 10, 20, 0.72);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 50px rgba(17,24,39,0.35);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 28px 65px rgba(76, 29, 149, 0.35);
+        }
+
+        .pricing-badge {
+            background: linear-gradient(135deg, rgba(250,204,21,0.22), rgba(249,115,22,0.25));
+            border: 1px solid rgba(250,204,21,0.28);
+            color: #fde68a;
+        }
+
+        .feature-pill {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-pill:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateX(4px);
+        }
+
+        .feature-icon-wrap {
+            background: linear-gradient(135deg, rgba(56,189,248,0.18), rgba(159,43,255,0.18));
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .ai-chat-shell {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .chat-bubble-user {
+            background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(59,130,246,0.18));
+        }
+
+        .chat-bubble-assistant {
+            background: rgba(255,255,255,0.06);
+        }
+
     </style>
 </head>
 <body class="selection:bg-brand-orange selection:text-white" onmousemove="handleMouseMove(event)">
@@ -279,6 +355,118 @@
                 <div class="mt-4 flex justify-center gap-4 text-[10px] text-gray-600 font-mono">
                     <span>CMD + K TO SEARCH</span>
                     <span>TRY: "FINANCE BOT"</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="website-pricing" class="py-20 md:py-24 px-6 relative border-t border-white/5 overflow-hidden">
+        <div class="pricing-orb w-72 h-72 bg-brand-blue/20 top-10 left-0"></div>
+        <div class="pricing-orb w-80 h-80 bg-brand-purple/20 bottom-0 right-0"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="pricing-shell rounded-[1.6rem] p-1">
+                <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 rounded-[1.5rem] bg-[#05070F]/90 p-6 md:p-8 lg:p-10">
+                    <div class="pricing-card rounded-[1.5rem] p-6 md:p-8 lg:p-10">
+                        <div class="flex flex-wrap items-center gap-3 mb-6">
+                            <span class="pricing-badge inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.22em]">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                                Most Popular Package
+                            </span>
+                            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-[11px] uppercase tracking-[0.22em] text-gray-300 font-semibold">
+                                Trusted by Local Businesses & Startups
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+                            <div>
+                                <p class="text-sm uppercase tracking-[0.25em] text-brand-blue font-semibold mb-3">Website Development Pricing</p>
+                                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">Website Development Package</h2>
+                                <p class="text-lg text-gray-300 max-w-2xl">Professional AI-Powered Website for Your Business</p>
+                            </div>
+                            <div class="md:text-right">
+                                <p class="text-sm uppercase tracking-[0.22em] text-gray-500 mb-2">Starting at</p>
+                                <div class="text-5xl md:text-6xl font-black text-white leading-none">₹19,999</div>
+                                <p class="text-sm text-brand-orange mt-3 font-semibold">Limited Time Offer for Early Businesses</p>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-3 mb-8">
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-blue"></i></span><div><h3 class="text-sm font-semibold text-white">Responsive Mobile + Desktop Design</h3><p class="text-xs text-gray-400 mt-1">Premium layouts tuned for every screen.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="search-check" class="w-5 h-5 text-brand-teal"></i></span><div><h3 class="text-sm font-semibold text-white">SEO Optimized Structure</h3><p class="text-xs text-gray-400 mt-1">Built for discoverability and indexed growth.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-5 h-5 text-yellow-400"></i></span><div><h3 class="text-sm font-semibold text-white">Fast Loading Performance</h3><p class="text-xs text-gray-400 mt-1">Optimized assets and lean architecture.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="message-square-share" class="w-5 h-5 text-green-400"></i></span><div><h3 class="text-sm font-semibold text-white">WhatsApp & Contact Integration</h3><p class="text-xs text-gray-400 mt-1">Direct inquiries routed to your team instantly.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="bot" class="w-5 h-5 text-brand-purple"></i></span><div><h3 class="text-sm font-semibold text-white">AI Chatbot (ChatGPT / Gemini Ready)</h3><p class="text-xs text-gray-400 mt-1">Qualify prospects with automated AI conversations.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="layout-dashboard" class="w-5 h-5 text-pink-400"></i></span><div><h3 class="text-sm font-semibold text-white">Admin Panel (Easy Updates)</h3><p class="text-xs text-gray-400 mt-1">Simple content management for your team.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-5 h-5 text-indigo-300"></i></span><div><h3 class="text-sm font-semibold text-white">Free 1-Year Hosting Guidance</h3><p class="text-xs text-gray-400 mt-1">Launch smoothly with expert deployment support.</p></div></div>
+                            <div class="feature-pill rounded-2xl p-4 flex items-start gap-3"><span class="feature-icon-wrap w-10 h-10 rounded-xl flex items-center justify-center shrink-0"><i data-lucide="form-input" class="w-5 h-5 text-brand-orange"></i></span><div><h3 class="text-sm font-semibold text-white">Lead Capture Forms</h3><p class="text-xs text-gray-400 mt-1">Capture serious demand from the first visit.</p></div></div>
+                        </div>
+
+                        <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-4 items-center">
+                            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                                <p class="text-xs uppercase tracking-[0.22em] text-gray-500 mb-2">Client proof</p>
+                                <p class="text-white text-sm md:text-base font-medium mb-3">“The new JactAI website funnel gave us better-quality leads in the first week.”</p>
+                                <p class="text-xs text-gray-400">Testimonial placeholder · Add real client quote before launch</p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-stretch">
+                                <a href="#pricing-lead-form" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl bg-white text-black text-sm font-bold hover:scale-[1.02] transition-transform" onclick="focusPricingForm(event)">Get Started Now <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                                <button type="button" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl border border-white/15 bg-white/5 text-white text-sm font-semibold hover:bg-white/10 transition-colors" onclick="scrollToAssistant()">Talk to AI Assistant <i data-lucide="messages-square" class="w-4 h-4"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="pricing-card rounded-[1.5rem] p-6 md:p-8">
+                            <div class="flex items-start justify-between gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm uppercase tracking-[0.24em] text-brand-purple font-semibold mb-2">Lead Capture Automation</p>
+                                    <h3 class="text-2xl font-bold text-white">Book your project in minutes</h3>
+                                </div>
+                                <div class="w-12 h-12 rounded-2xl bg-brand-purple/15 border border-brand-purple/20 flex items-center justify-center shrink-0">
+                                    <i data-lucide="rocket" class="w-5 h-5 text-brand-purple"></i>
+                                </div>
+                            </div>
+                            <form id="pricing-lead-form" class="space-y-4" onsubmit="submitPricingLead(event)">
+                                <div>
+                                    <label for="lead-name" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Your Name</label>
+                                    <input id="lead-name" name="name" type="text" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="Enter your full name">
+                                </div>
+                                <div>
+                                    <label for="lead-phone" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Phone Number</label>
+                                    <input id="lead-phone" name="phone" type="tel" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="+91 98765 43210">
+                                </div>
+                                <div>
+                                    <label for="lead-requirement" class="block text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Project Requirement</label>
+                                    <textarea id="lead-requirement" name="requirement" rows="4" required class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-blue" placeholder="Tell us what you want to build"></textarea>
+                                </div>
+                                <button id="pricing-submit" type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-blue to-brand-purple px-5 py-4 text-sm font-bold text-white hover:opacity-95 transition-opacity">
+                                    Capture My Requirement <i data-lucide="send" class="w-4 h-4"></i>
+                                </button>
+                                <p id="pricing-form-status" class="text-sm text-gray-400 min-h-[1.25rem]"></p>
+                            </form>
+                        </div>
+
+                        <div id="ai-assistant-panel" class="pricing-card rounded-[1.5rem] p-6 md:p-8">
+                            <div class="flex items-center justify-between gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm uppercase tracking-[0.24em] text-brand-blue font-semibold mb-2">AI Sales Assistant</p>
+                                    <h3 class="text-2xl font-bold text-white">Pre-qualify leads with ChatGPT or Gemini</h3>
+                                </div>
+                                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-[11px] text-gray-300 uppercase tracking-[0.2em]">
+                                    <span class="w-2 h-2 rounded-full bg-green-400"></span>
+                                    Live-ready
+                                </div>
+                            </div>
+                            <div id="assistant-messages" class="ai-chat-shell rounded-3xl p-4 space-y-3 h-64 overflow-y-auto mb-4">
+                                <div class="chat-bubble-assistant rounded-2xl p-3 text-sm text-gray-200">Hi! I can recommend the best website package and collect your business requirement.</div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3 mb-3">
+                                <input id="assistant-input" type="text" class="flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-brand-purple" placeholder="Ask about timeline, features, or integrations">
+                                <button type="button" id="assistant-send" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors" onclick="sendAssistantMessage()">Ask AI <i data-lucide="sparkles" class="w-4 h-4"></i></button>
+                            </div>
+                            <p id="assistant-status" class="text-xs text-gray-500">Powered by OpenAI or Gemini. Leads can be saved to Supabase, Firebase, or Google Sheets.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -529,7 +717,8 @@
 
             setTimeout(() => {
                 let target = '#services';
-                if(input.includes('farm') || input.includes('agri')) target = 'agriculture.html';
+                if(input.includes('price') || input.includes('package') || input.includes('website')) target = '#website-pricing';
+                else if(input.includes('farm') || input.includes('agri')) target = 'agriculture.html';
                 else if(input.includes('money') || input.includes('fin')) target = 'finance.html';
                 else if(input.includes('web') || input.includes('app')) target = 'web-development.html';
                 else if(input.includes('doc') || input.includes('health')) target = 'medical.html';
@@ -543,6 +732,120 @@
                 window.location.href = target;
             }, 800);
         }
+
+        function focusPricingForm(event) {
+            if (event) event.preventDefault();
+            const nameInput = document.getElementById('lead-name');
+            document.getElementById('pricing-lead-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => nameInput?.focus(), 400);
+        }
+
+        function scrollToAssistant() {
+            const panel = document.getElementById('ai-assistant-panel');
+            panel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => document.getElementById('assistant-input')?.focus(), 400);
+        }
+
+        async function submitPricingLead(event) {
+            event.preventDefault();
+            const form = event.target;
+            const status = document.getElementById('pricing-form-status');
+            const button = document.getElementById('pricing-submit');
+            const payload = {
+                package: 'Website Development Package',
+                source: 'homepage-pricing-section',
+                name: form.name.value.trim(),
+                phone: form.phone.value.trim(),
+                requirement: form.requirement.value.trim()
+            };
+
+            if (!payload.name || !payload.phone || !payload.requirement) {
+                status.textContent = 'Please fill in your name, phone number, and project requirement.';
+                status.className = 'text-sm text-red-400 min-h-[1.25rem]';
+                return;
+            }
+
+            button.disabled = true;
+            button.innerHTML = 'Submitting...';
+            status.textContent = 'Sending your request to our team...';
+            status.className = 'text-sm text-gray-400 min-h-[1.25rem]';
+
+            try {
+                const response = await fetch('/api/website-package-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'Unable to submit your request right now.');
+
+                status.textContent = result.message || 'Thanks! Our team will contact you shortly.';
+                status.className = 'text-sm text-green-400 min-h-[1.25rem]';
+                form.reset();
+            } catch (error) {
+                status.textContent = error.message;
+                status.className = 'text-sm text-red-400 min-h-[1.25rem]';
+            } finally {
+                button.disabled = false;
+                button.innerHTML = 'Capture My Requirement <i data-lucide="send" class="w-4 h-4"></i>';
+                lucide.createIcons();
+            }
+        }
+
+        function appendAssistantMessage(role, content) {
+            const container = document.getElementById('assistant-messages');
+            const message = document.createElement('div');
+            message.className = `${role === 'user' ? 'chat-bubble-user ml-auto text-white' : 'chat-bubble-assistant text-gray-200'} rounded-2xl p-3 text-sm max-w-[85%]`;
+            message.textContent = content;
+            container.appendChild(message);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        async function sendAssistantMessage() {
+            const input = document.getElementById('assistant-input');
+            const status = document.getElementById('assistant-status');
+            const sendButton = document.getElementById('assistant-send');
+            const prompt = input.value.trim();
+
+            if (!prompt) return;
+
+            appendAssistantMessage('user', prompt);
+            input.value = '';
+            sendButton.disabled = true;
+            status.textContent = 'Thinking with AI...';
+
+            try {
+                const response = await fetch('/api/website-package-assistant', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        prompt,
+                        leadContext: {
+                            package: 'Website Development Package',
+                            price: '₹19,999'
+                        }
+                    })
+                });
+                const result = await response.json();
+                if (!response.ok) throw new Error(result.error || 'The assistant is temporarily unavailable.');
+
+                appendAssistantMessage('assistant', result.output || 'Our AI assistant will help you shortly.');
+                status.textContent = result.provider ? `Response generated via ${result.provider}.` : 'Response generated successfully.';
+            } catch (error) {
+                appendAssistantMessage('assistant', 'Thanks! A human strategist can follow up with pricing and project details on WhatsApp.');
+                status.textContent = error.message;
+            } finally {
+                sendButton.disabled = false;
+            }
+        }
+
+        document.getElementById('assistant-input')?.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendAssistantMessage();
+            }
+        });
     </script>
 </body>
 </html>
