@@ -94,9 +94,9 @@ const createServicesSection = () => {
           <p>Every page now reconnects visitors to the three core offers that were previously reduced: website development, AI automation, and business digital solutions.</p>
         </div>
         <div class='card-grid'>
-          <article class='service-card feature-icon-card'><span class='card-icon' aria-hidden='true'>🌐</span><span class='card-kicker'>Primary</span><h3>Website Development</h3><p>Conversion-focused websites, landing pages, and service funnels designed to look premium and turn visits into inquiries.</p><div class='card-note'>Lead offer restored with stronger hierarchy, pricing context, and premium UI treatment.</div></article>
-          <article class='service-card feature-icon-card'><span class='card-icon' aria-hidden='true'>🤖</span><span class='card-kicker'>Automation</span><h3>AI Automation</h3><p>Deploy intelligent chat, lead qualification, FAQ handling, and follow-up flows across your website and WhatsApp.</p><div class='card-note'>Built to support 24/7 engagement without making the site feel product-led only.</div></article>
-          <article class='service-card feature-icon-card'><span class='card-icon' aria-hidden='true'>🧩</span><span class='card-kicker'>Growth ops</span><h3>Business Digital Solutions</h3><p>Integrate forms, CRM, notifications, and digital workflows so new leads move quickly from contact to action.</p><div class='card-note'>A richer services section with hover depth and repeated CTA paths.</div></article>
+          <article class='service-card feature-icon-card'><div class='service-media'><img src='assets/illustrations/service-web-dev.svg' alt='Illustration of a website mockup on laptop and mobile screens' width='240' height='180' loading='lazy'></div><span class='card-kicker'>Primary</span><h3>Website Development</h3><p>Conversion-focused websites, landing pages, and service funnels designed to look premium and turn visits into inquiries.</p><div class='card-note'>Lead offer restored with stronger hierarchy, pricing context, and premium UI treatment.</div></article>
+          <article class='service-card feature-icon-card'><div class='service-media'><img src='assets/illustrations/service-automation.svg' alt='Illustration of an AI automation pipeline connecting lead capture to workflow steps' width='240' height='180' loading='lazy'></div><span class='card-kicker'>Automation</span><h3>AI Automation</h3><p>Deploy intelligent chat, lead qualification, FAQ handling, and follow-up flows across your website and WhatsApp.</p><div class='card-note'>Built to support 24/7 engagement without making the site feel product-led only.</div></article>
+          <article class='service-card feature-icon-card'><div class='service-media service-media-stack'><img src='assets/illustrations/service-chatbot.svg' alt='Illustration of a chatbot conversation interface in a dark UI' width='240' height='180' loading='lazy'><img src='assets/illustrations/service-dashboard.svg' alt='Illustration of a business analytics dashboard showing growth metrics' width='240' height='180' loading='lazy'></div><span class='card-kicker'>Growth ops</span><h3>Business Digital Solutions</h3><p>Integrate forms, CRM, notifications, and digital workflows so new leads move quickly from contact to action.</p><div class='card-note'>A richer services section with hover depth and repeated CTA paths.</div></article>
         </div>
       </div>
     </div>
@@ -123,6 +123,9 @@ const createMapSection = () => {
       </div>
       <div class='map-grid'>
         <article class='map-details'>
+          <div class='contact-visual'>
+            <img src='assets/illustrations/contact-office.svg' alt='Minimal illustration of JactAI office location and workspace marker' width='260' height='220' loading='lazy'>
+          </div>
           <span class='card-kicker'>Headquarters</span>
           <h3>Pembarthy, Jangaon, Telangana</h3>
           <p class='map-copy'>H NO:13-90/2, Pembarthy, Jangaon, Telangana 506201. Restored as a responsive contact destination with direct call-to-action links.</p>
