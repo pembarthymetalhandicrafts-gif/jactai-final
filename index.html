@@ -1,129 +1,207 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JactAI | Websites & AI Systems</title>
-  <link rel="stylesheet" href="site.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JactAI | Premium Websites & AI Systems</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base: "#05070f",
+            panel: "#0b1020",
+            glass: "rgba(15, 23, 42, 0.68)",
+            neonBlue: "#4f9bff",
+            neonPurple: "#9f7aea"
+          },
+          boxShadow: {
+            glow: "0 0 0 1px rgba(79, 155, 255, 0.45), 0 10px 40px rgba(79, 155, 255, 0.22)",
+            card: "0 16px 40px rgba(6, 10, 30, 0.45)"
+          },
+          keyframes: {
+            marquee: {
+              "0%": { transform: "translateX(0)" },
+              "100%": { transform: "translateX(-50%)" }
+            }
+          },
+          animation: {
+            marquee: "marquee 26s linear infinite"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .glass {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .hero-grid-bg {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(79, 155, 255, 0.26), transparent 35%),
+        radial-gradient(circle at 78% 18%, rgba(159, 122, 234, 0.26), transparent 38%),
+        radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.18), transparent 32%);
+    }
+  </style>
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container header-row">
-    <a href="index.html" class="brand"><strong>JactAI</strong><em>Websites + AI systems for growth</em></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" class="site-nav" aria-label="Primary">
-      <a class="nav-link current" href="index.html">Home</a>
-      <details class="services-menu">
-        <summary>Services</summary>
-        <div class="services-dropdown">
-          <a href="services.html">Overview</a>
-          <a href="web-development.html">Website Development</a>
-          <a href="ai-automation.html">AI Automation</a>
-          <a href="chatbots.html">Chatbots</a>
-          <a href="business-systems.html">Business Systems</a>
-        </div>
-      </details>
-      <a class="nav-link" href="pricing.html">Pricing</a>
-      <a class="nav-link" href="about.html">About</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-      <a class="button button-primary" href="contact.html">Get Started</a>
+<body class="bg-base text-slate-100 selection:bg-neonBlue/30">
+  <div class="hero-grid-bg fixed inset-0 -z-10"></div>
+
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-base/80 backdrop-blur">
+    <nav class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <a href="#" class="text-xl font-semibold tracking-tight">Jact<span class="text-neonBlue">AI</span></a>
+      <div class="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+        <a class="transition hover:text-white" href="#home">Home</a>
+        <a class="transition hover:text-white" href="#services">Services</a>
+        <a class="transition hover:text-white" href="#pricing">Pricing</a>
+        <a class="transition hover:text-white" href="#about">About</a>
+        <a class="transition hover:text-white" href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="rounded-full border border-neonBlue/60 bg-neonBlue/20 px-5 py-2 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-neonBlue/30">Get Started</a>
     </nav>
-  </div>
-</header>
-<main id="main">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy reveal">
-        <h1>We build websites &amp; AI systems for your business</h1>
-        <p>High-performance websites and simple AI tools — starting at ₹19,999</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
-          <a class="button button-primary" href="contact.html">Get Started</a>
-          <a class="button button-secondary" href="web-development.html">View Work</a>
+  </header>
+
+  <main id="home" class="mx-auto w-full max-w-7xl px-6 pb-20 pt-16 lg:px-8">
+    <section class="grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <p class="mb-4 inline-flex rounded-full border border-neonPurple/40 bg-neonPurple/10 px-4 py-1 text-xs uppercase tracking-[0.24em] text-neonPurple">AI Agency</p>
+        <h1 class="text-balance text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">We build websites &amp; AI systems for your business</h1>
+        <p class="mt-5 max-w-xl text-lg text-slate-300">High-performance websites and smart AI tools — starting at ₹19,999.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#pricing" class="rounded-full bg-gradient-to-r from-neonBlue to-neonPurple px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5">Get Started</a>
+          <a href="#work" class="rounded-full border border-slate-500/70 px-6 py-3 text-sm font-semibold text-slate-100 transition hover:border-neonBlue hover:text-white">View Work</a>
         </div>
       </div>
-      <div class="hero-media reveal">
-        <img src="assets/real-visuals/hero-real-mockup.svg" alt="Laptop showing a real business website mockup">
+      <div class="glass overflow-hidden rounded-3xl p-3 shadow-card">
+        <img src="assets/real-visuals/hero-real-mockup.svg" alt="Premium dark dashboard workspace mockup" class="h-full w-full rounded-2xl object-cover">
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-title reveal"><h2>Trusted by growing businesses</h2></div>
-      <div class="trust-grid">
-        <article class="quote reveal"><p>“JactAI launched our website in days, and inbound calls increased fast.”</p><span>— Founder, Local Services Brand</span></article>
-        <article class="quote reveal"><p>“Minimal design, clear content, real conversions. Exactly what we needed.”</p><span>— Director, Coaching Company</span></article>
-        <article class="quote reveal"><p>“Our team now handles leads and follow-ups with less manual work.”</p><span>— Operations Lead, B2B Firm</span></article>
+    <section class="mt-20">
+      <h2 class="mb-8 text-center text-2xl font-semibold">Trusted by growing businesses</h2>
+      <div class="overflow-hidden">
+        <div class="flex min-w-max gap-4 animation-marquee animate-marquee">
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“JactAI turned our site into a lead machine within two weeks.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Founder, Consulting Studio</p>
+          </article>
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“The AI automation flows cut repetitive ops by nearly 40%.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Ops Lead, D2C Brand</p>
+          </article>
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“Premium design, faster site, and better conversions from week one.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Director, Education Business</p>
+          </article>
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“JactAI turned our site into a lead machine within two weeks.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Founder, Consulting Studio</p>
+          </article>
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“The AI automation flows cut repetitive ops by nearly 40%.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Ops Lead, D2C Brand</p>
+          </article>
+          <article class="glass w-80 rounded-2xl p-5">
+            <p class="text-sm text-slate-200">“Premium design, faster site, and better conversions from week one.”</p>
+            <p class="mt-3 text-xs uppercase tracking-wider text-slate-400">Director, Education Business</p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-title reveal"><h2>Core services</h2></div>
-      <div class="service-list">
-        <article class="service-row reveal"><img src="assets/real-visuals/website-preview-real.svg" alt="Website preview"><div><h3>Website Development</h3><p class="copy">High-conversion business websites designed for trust and lead generation.</p></div><a class="button button-secondary" href="web-development.html">Details</a></article>
-        <article class="service-row reveal"><img src="assets/real-visuals/automation-workflow-real.svg" alt="Automation workflow UI"><div><h3>AI Automation</h3><p class="copy">Automate lead capture and repetitive workflows with simple AI systems.</p></div><a class="button button-secondary" href="ai-automation.html">Details</a></article>
-        <article class="service-row reveal"><img src="assets/real-visuals/chatbot-ui-real.svg" alt="Chat interface"><div><h3>Chatbots</h3><p class="copy">WhatsApp and website chatbots for faster response and better conversion.</p></div><a class="button button-secondary" href="chatbots.html">Details</a></article>
-        <article class="service-row reveal"><img src="assets/real-visuals/analytics-dashboard-real.svg" alt="Business dashboard"><div><h3>Business Systems</h3><p class="copy">CRM-style dashboards and internal tools that keep operations organized.</p></div><a class="button button-secondary" href="business-systems.html">Details</a></article>
+    <section id="services" class="mt-20">
+      <h2 class="mb-8 text-2xl font-semibold">Core services</h2>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <article class="glass rounded-2xl p-6 transition duration-300 hover:border-neonBlue/60 hover:shadow-glow">
+          <h3 class="text-lg font-semibold">Website Development</h3>
+          <p class="mt-2 text-slate-300">Conversion-focused websites with premium UX and strong performance.</p>
+        </article>
+        <article class="glass rounded-2xl p-6 transition duration-300 hover:border-neonBlue/60 hover:shadow-glow">
+          <h3 class="text-lg font-semibold">AI Automation</h3>
+          <p class="mt-2 text-slate-300">Automated pipelines for lead routing, follow-ups, and internal workflows.</p>
+        </article>
+        <article class="glass rounded-2xl p-6 transition duration-300 hover:border-neonBlue/60 hover:shadow-glow">
+          <h3 class="text-lg font-semibold">Chatbots</h3>
+          <p class="mt-2 text-slate-300">Intelligent website and WhatsApp chatbots that support and convert.</p>
+        </article>
+        <article class="glass rounded-2xl p-6 transition duration-300 hover:border-neonBlue/60 hover:shadow-glow">
+          <h3 class="text-lg font-semibold">Business Systems</h3>
+          <p class="mt-2 text-slate-300">Custom operational dashboards that centralize your business data.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <div class="container media-grid">
-      <div class="reveal">
-        <div class="section-title"><h2>What your website will look like</h2></div>
-        <ul class="list">
-          <li>Premium homepage with clear offer and strong call-to-action.</li>
-          <li>Mobile-first layout with fast loading performance.</li>
-          <li>Trust-focused structure that converts visitors into leads.</li>
+    <section id="work" class="mt-20 grid gap-8 lg:grid-cols-2">
+      <div class="glass rounded-3xl p-8">
+        <h2 class="text-2xl font-semibold">What your website will look like</h2>
+        <ul class="mt-5 space-y-3 text-slate-300">
+          <li>• Polished hero section with clear messaging and premium visual hierarchy.</li>
+          <li>• Fast, responsive layout optimized for conversions on all devices.</li>
+          <li>• Strategic sections built to turn visitors into qualified leads.</li>
         </ul>
       </div>
-      <div class="hero-media reveal"><img src="assets/real-visuals/website-preview-real.svg" alt="Full website preview"></div>
-    </div>
-  </section>
+      <div class="glass overflow-hidden rounded-3xl p-3 shadow-card">
+        <img src="assets/real-visuals/website-preview-real.svg" alt="Premium website preview" class="h-full w-full rounded-2xl object-cover">
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="container pricing-grid">
-      <article class="price-block reveal">
-        <h2 class="price-value">₹19,999</h2>
-        <ul class="list">
-          <li>Responsive</li>
-          <li>SEO ready</li>
-          <li>Fast</li>
-          <li>Contact integration</li>
+    <section id="pricing" class="mt-20 grid gap-6 lg:grid-cols-2">
+      <article class="glass rounded-3xl p-8 ring-1 ring-neonBlue/50">
+        <p class="text-sm uppercase tracking-[0.2em] text-neonBlue">Starting Package</p>
+        <h2 class="mt-3 text-5xl font-semibold">₹19,999</h2>
+        <ul class="mt-6 space-y-3 text-slate-300">
+          <li>✔ Responsive</li>
+          <li>✔ SEO ready</li>
+          <li>✔ Fast</li>
+          <li>✔ Contact integration</li>
         </ul>
-        <a class="button button-primary" href="contact.html" style="margin-top:16px;">Start Now</a>
+        <a href="#contact" class="mt-7 inline-flex rounded-full bg-gradient-to-r from-neonBlue to-neonPurple px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5">Start Now</a>
       </article>
-      <article class="panel reveal">
-        <h2>Before vs After</h2>
-        <div class="compare-grid">
-          <div class="compare-shot"><img src="assets/real-visuals/pricing-before-after-real.svg" alt="Basic website screenshot"></div>
-          <div class="compare-shot"><img src="assets/real-visuals/website-preview-real.svg" alt="Professional website screenshot"></div>
+      <article class="glass rounded-3xl p-8">
+        <h3 class="text-2xl font-semibold">Before vs After</h3>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4">
+            <p class="text-xs uppercase tracking-wide text-slate-400">Before</p>
+            <p class="mt-2 text-sm text-slate-300">Outdated design, weak trust signals, and low conversion clarity.</p>
+          </div>
+          <div class="rounded-2xl border border-neonBlue/30 bg-neonBlue/5 p-4">
+            <p class="text-xs uppercase tracking-wide text-neonBlue">After</p>
+            <p class="mt-2 text-sm text-slate-200">Premium UI, optimized journey, and conversion-focused architecture.</p>
+          </div>
         </div>
       </article>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section">
-    <div class="container panel reveal" style="text-align:center;">
-      <h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 10px;">Ready to build your website?</h2>
-      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-        <a class="button button-primary" href="contact.html">Get Started</a>
-        <a class="button button-secondary" href="contact.html">Contact</a>
+  <footer id="about" class="border-t border-white/10 bg-base/90">
+    <div class="mx-auto grid w-full max-w-7xl gap-8 px-6 py-10 text-sm text-slate-300 md:grid-cols-3 lg:px-8">
+      <div>
+        <p class="text-lg font-semibold text-slate-100">JactAI</p>
+        <p class="mt-2">Premium websites and AI systems engineered for growth.</p>
+      </div>
+      <div>
+        <p class="font-semibold text-slate-100">Quick links</p>
+        <div class="mt-2 space-y-1">
+          <a class="block hover:text-white" href="#home">Home</a>
+          <a class="block hover:text-white" href="#services">Services</a>
+          <a class="block hover:text-white" href="#pricing">Pricing</a>
+        </div>
+      </div>
+      <div id="contact">
+        <p class="font-semibold text-slate-100">Contact</p>
+        <p class="mt-2">jactai.com@gmail.com</p>
+        <p>+91 82474 63118</p>
       </div>
     </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div><a href="index.html" class="brand"><strong>JactAI</strong><em>Clean web experiences + practical AI</em></a></div>
-    <div><h3>Services</h3><ul class="footer-links"><li><a href="web-development.html">Website Development</a></li><li><a href="ai-automation.html">AI Automation</a></li><li><a href="chatbots.html">Chatbots</a></li><li><a href="business-systems.html">Business Systems</a></li></ul></div>
-    <div><h3>Contact</h3><ul class="footer-links"><li><a href="mailto:jactai.com@gmail.com">jactai.com@gmail.com</a></li><li><a href="tel:+918247463118">+91 82474 63118</a></li></ul></div>
-  </div>
-</footer>
-<script src="site.js" defer></script>
+  </footer>
+
+  <a href="https://wa.me/918247463118" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 inline-flex items-center gap-2 rounded-full border border-green-300/40 bg-green-500 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-green-500/30 transition hover:-translate-y-0.5 hover:bg-green-400">
+    <span class="text-lg leading-none">💬</span>
+    WhatsApp
+  </a>
 </body>
 </html>
