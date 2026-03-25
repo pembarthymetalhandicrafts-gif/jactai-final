@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Before and after website comparison for pricing package">
+  <rect width="1200" height="900" rx="28" fill="#0a1426"/>
+  <rect x="70" y="84" width="500" height="680" rx="20" fill="#161f34" stroke="#573a3a"/>
+  <rect x="630" y="84" width="500" height="680" rx="20" fill="#111f36" stroke="#39659e"/>
+  <rect x="102" y="128" width="436" height="48" rx="10" fill="#3b2d2d"/>
+  <rect x="662" y="128" width="436" height="48" rx="10" fill="#1c3359"/>
+  <rect x="102" y="198" width="436" height="168" rx="12" fill="#302828"/>
+  <rect x="662" y="198" width="436" height="168" rx="12" fill="#24457a"/>
+  <rect x="102" y="384" width="208" height="120" rx="12" fill="#2f2727"/>
+  <rect x="330" y="384" width="208" height="120" rx="12" fill="#2f2727"/>
+  <rect x="662" y="384" width="208" height="120" rx="12" fill="#1a3359"/>
+  <rect x="890" y="384" width="208" height="120" rx="12" fill="#1a3359"/>
+  <rect x="102" y="534" width="436" height="40" rx="20" fill="#4c2f2f"/>
+  <rect x="662" y="534" width="436" height="40" rx="20" fill="#3b72ea"/>
+  <text x="120" y="742" fill="#fca5a5" font-size="34" font-family="Inter,Arial,sans-serif" font-weight="700">Before</text>
+  <text x="680" y="742" fill="#93c5fd" font-size="34" font-family="Inter,Arial,sans-serif" font-weight="700">After: ₹19,999 Package</text>
+</svg>

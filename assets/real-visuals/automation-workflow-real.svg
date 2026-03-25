@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="AI automation workflow board with trigger and actions">
+  <rect width="1200" height="900" rx="28" fill="#0b1425"/>
+  <rect x="56" y="56" width="1088" height="788" rx="22" fill="#101d35" stroke="#2e4f88"/>
+  <rect x="120" y="110" width="960" height="56" rx="10" fill="#172b4c"/>
+  <rect x="130" y="250" width="220" height="110" rx="16" fill="#23457d"/>
+  <rect x="490" y="250" width="220" height="110" rx="16" fill="#203d6e"/>
+  <rect x="850" y="250" width="220" height="110" rx="16" fill="#203d6e"/>
+  <rect x="490" y="470" width="220" height="110" rx="16" fill="#203d6e"/>
+  <rect x="850" y="470" width="220" height="110" rx="16" fill="#3b72ea"/>
+  <path d="M350 305H490" stroke="#7ea7ff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M710 305H850" stroke="#7ea7ff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M600 360V470" stroke="#7ea7ff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M710 525H850" stroke="#7ea7ff" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="486" cy="305" r="8" fill="#9ec0ff"/>
+  <circle cx="706" cy="305" r="8" fill="#9ec0ff"/>
+  <circle cx="600" cy="466" r="8" fill="#9ec0ff"/>
+</svg>

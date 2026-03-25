@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Customer support chatbot interface screenshot style">
+  <rect width="1200" height="900" rx="28" fill="#0a1427"/>
+  <rect x="60" y="60" width="1080" height="780" rx="20" fill="#111f37"/>
+  <rect x="90" y="100" width="1020" height="78" rx="12" fill="#1b2f52"/>
+  <rect x="90" y="198" width="284" height="612" rx="14" fill="#162844"/>
+  <rect x="398" y="198" width="712" height="612" rx="14" fill="#12243f"/>
+  <rect x="430" y="236" width="320" height="64" rx="20" fill="#1e3a62"/>
+  <rect x="742" y="316" width="334" height="64" rx="20" fill="#3b72ea"/>
+  <rect x="430" y="396" width="402" height="64" rx="20" fill="#1e3a62"/>
+  <rect x="696" y="476" width="380" height="64" rx="20" fill="#3b72ea"/>
+  <rect x="430" y="556" width="286" height="64" rx="20" fill="#1e3a62"/>
+  <rect x="430" y="724" width="646" height="54" rx="27" fill="#213d6b"/>
+</svg>
