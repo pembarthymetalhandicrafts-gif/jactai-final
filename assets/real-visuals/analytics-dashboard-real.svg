@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Analytics dashboard screenshot style with metrics and charts">
+  <rect width="1200" height="900" rx="28" fill="#0b1527"/>
+  <rect x="56" y="56" width="1088" height="788" rx="22" fill="#101f38"/>
+  <rect x="94" y="94" width="1012" height="70" rx="12" fill="#1a2f52"/>
+  <rect x="94" y="190" width="238" height="136" rx="14" fill="#1f3a66"/>
+  <rect x="350" y="190" width="238" height="136" rx="14" fill="#1f3a66"/>
+  <rect x="606" y="190" width="238" height="136" rx="14" fill="#1f3a66"/>
+  <rect x="862" y="190" width="244" height="136" rx="14" fill="#1f3a66"/>
+  <rect x="94" y="352" width="644" height="286" rx="16" fill="#162b4c"/>
+  <rect x="756" y="352" width="350" height="286" rx="16" fill="#162b4c"/>
+  <polyline points="128,586 230,544 328,562 432,480 530,506 624,438 708,462" fill="none" stroke="#69a1ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="790" y="396" width="282" height="30" rx="12" fill="#254a7d"/>
+  <rect x="790" y="446" width="240" height="30" rx="12" fill="#254a7d"/>
+  <rect x="790" y="496" width="198" height="30" rx="12" fill="#254a7d"/>
+  <rect x="790" y="546" width="266" height="30" rx="12" fill="#3b72ea"/>
+  <rect x="94" y="662" width="1012" height="142" rx="16" fill="#142544"/>
+</svg>
