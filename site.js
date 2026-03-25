@@ -1,34 +1,44 @@
-const menuButton = document.querySelector('.menu-toggle');
+const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
 
-if (menuButton && siteNav) {
-  menuButton.addEventListener('click', () => {
-    const isOpen = siteNav.classList.toggle('is-open');
-    menuButton.setAttribute('aria-expanded', String(isOpen));
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
   });
 }
 
-const revealItems = document.querySelectorAll('.reveal');
+const servicesMenu = document.querySelector('.services-menu');
+if (servicesMenu) {
+  document.addEventListener('click', (event) => {
+    if (!servicesMenu.contains(event.target)) {
+      servicesMenu.open = false;
+    }
+  });
+}
+
+const revealElements = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
-  revealItems.forEach((item) => observer.observe(item));
+
+  revealElements.forEach((element) => observer.observe(element));
 } else {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
+  revealElements.forEach((element) => element.classList.add('visible'));
 }
 
 if (!document.querySelector('.floating-whatsapp')) {
-  const button = document.createElement('a');
-  button.className = 'floating-whatsapp';
-  button.href = 'https://wa.me/918247463118?text=Hello%2C%20I%20want%20to%20discuss%20a%20website%20or%20AI%20project';
-  button.target = '_blank';
-  button.rel = 'noopener noreferrer';
-  button.textContent = 'WhatsApp Us';
-  document.body.appendChild(button);
+  const wa = document.createElement('a');
+  wa.className = 'floating-whatsapp';
+  wa.href = 'https://wa.me/918247463118?text=Hi%20JactAI%2C%20I%20want%20to%20build%20my%20website.';
+  wa.textContent = 'WhatsApp';
+  wa.target = '_blank';
+  wa.rel = 'noopener noreferrer';
+  document.body.appendChild(wa);
 }
