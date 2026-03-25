@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Coaching Institute</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, sans-serif; color:#1f2937; background:#f8fafc; }
+    .container { width:min(1040px, 94%); margin:0 auto; }
+    header { background:#fff; border-bottom:1px solid #e5e7eb; }
+    .nav { display:flex; justify-content:space-between; align-items:center; padding:14px 0; }
+    .brand { font-size:22px; font-weight:700; }
+    .menu a { margin-left:16px; text-decoration:none; color:#374151; font-size:14px; }
+    .hero { background:#ffffff; padding:34px 0; border-bottom:1px solid #e5e7eb; }
+    .hero h1 { margin:0 0 10px; font-size:36px; }
+    .hero p { margin:0; color:#4b5563; line-height:1.6; }
+    section { padding:30px 0; }
+    h2 { margin:0 0 14px; font-size:28px; }
+    .courses { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .course { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px; }
+    .results { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:16px; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:10px; }
+    .stat { background:#f3f4f6; border-radius:8px; padding:14px; text-align:center; }
+    .stat strong { display:block; font-size:26px; color:#0f172a; }
+    .contact { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:18px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    input, select, textarea { width:100%; border:1px solid #d1d5db; border-radius:6px; padding:10px; font-size:14px; }
+    textarea { grid-column:1 / -1; height:90px; }
+    button { margin-top:12px; background:#2563eb; color:#fff; border:none; border-radius:6px; padding:10px 14px; font-weight:600; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Top Coaching Institute</div>
+      <nav class="menu">
+        <a href="#courses">Courses</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Build Strong Fundamentals. Get Top Results.</h1>
+      <p>Trusted by parents for disciplined teaching, regular tests, and personal mentoring for board and entrance exam success.</p>
+    </div>
+  </section>
+
+  <section id="courses" class="container">
+    <h2>Courses</h2>
+    <div class="courses">
+      <div class="course"><strong>Class 8-10 Foundation</strong><p>Maths, Science, and Olympiad preparation with weekly assessments.</p></div>
+      <div class="course"><strong>NEET Long Term</strong><p>Physics, Chemistry, Biology with chapter tests and monthly grand tests.</p></div>
+      <div class="course"><strong>IIT-JEE Main + Advanced</strong><p>Concept-first classroom training with problem-solving practice sessions.</p></div>
+    </div>
+  </section>
+
+  <section id="results" class="container">
+    <div class="results">
+      <h2>Results</h2>
+      <p>Consistent performance in board and competitive exams over the last 5 years.</p>
+      <div class="stats">
+        <div class="stat"><strong>96%</strong>Students scored above 80% in Board Exams</div>
+        <div class="stat"><strong>42</strong>NEET selections in 2025 batch</div>
+        <div class="stat"><strong>31</strong>JEE Main 95+ percentile scorers</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <div class="contact">
+      <h2>Contact Form</h2>
+      <div class="form-grid">
+        <input placeholder="Student Name" />
+        <input placeholder="Parent Phone" />
+        <select><option>Select Course</option><option>Foundation</option><option>NEET</option><option>JEE</option></select>
+        <input placeholder="Preferred Batch" />
+        <textarea placeholder="Message"></textarea>
+      </div>
+      <button>Request Callback</button>
+    </div>
+  </section>
+</body>
+</html>
