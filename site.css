@@ -205,6 +205,28 @@ img { max-width: 100%; display: block; }
 .service-card, .proof-card, .pricing-card, .pricing-side-card, .portfolio-card, .testimonial-card, .funnel-card { padding: 24px; }
 .service-card h3, .proof-card h3, .pricing-card h3, .portfolio-card h3, .testimonial-card strong, .funnel-card h3, .map-details h3 { margin: 6px 0 10px; font-size: 1.3rem; letter-spacing: -0.03em; }
 .service-card p, .proof-card p, .card-note, .pricing-list, .check-list, .portfolio-card p, .testimonial-card span, .funnel-card p, .map-copy, .map-list { color: var(--muted); }
+
+.service-card-featured {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--accent) 46%, var(--border));
+  background: linear-gradient(160deg, rgba(79, 140, 255, 0.2), rgba(124, 58, 237, 0.08));
+}
+
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #f8fafc;
+  border: 1px solid rgba(248, 250, 252, 0.35);
+  background: linear-gradient(90deg, rgba(255, 122, 24, 0.85), rgba(124, 58, 237, 0.85));
+}
 .card-kicker { color: #cbd5e1; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
 .card-icon {
   display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; margin-bottom: 12px;
@@ -388,6 +410,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 980px) {
   .hero-grid, .split-grid, .cta-banner, .footer-grid, .pricing-grid, .pricing-grid-double, .portfolio-grid, .ai-assistant-grid, .map-grid, .impact-strip { grid-template-columns: 1fr; }
   .card-grid, .proof-grid, .mini-grid, .testimonial-grid, .funnel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-card-featured { grid-column: span 2; }
   .preview-card-primary { left: 12px; bottom: 12px; }
   .preview-card-secondary { right: 12px; top: 12px; }
   .site-nav { position: absolute; left: 1rem; right: 1rem; top: calc(100% + 8px); display: none; flex-direction: column; align-items: stretch; padding: 16px; background: rgba(5,8,22,0.96); border: 1px solid rgba(255,255,255,0.08); border-radius: 22px; }
@@ -403,6 +426,7 @@ img { max-width: 100%; display: block; }
   .brand em { display: none; }
   .brand-mark { width: 40px; height: 40px; }
   .card-grid, .proof-grid, .mini-grid, .visual-panel-row, .testimonial-grid, .funnel-grid, .service-media-stack { grid-template-columns: 1fr; }
+  .service-card-featured { grid-column: span 1; }
   .floating-preview-card {
     position: static;
     max-width: none;

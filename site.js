@@ -36,12 +36,12 @@ const createConversionStrip = () => {
   strip.innerHTML = `
     <div class='conversion-strip-copy'>
       <strong>Get Your Business Website Starting at ₹19,999</strong>
-      <span>Choose your next step: buy now, book a demo, or talk to AI.</span>
+      <span>Choose your next step: Get Your Website, Contact Us, or WhatsApp Now.</span>
     </div>
     <div class='conversion-strip-actions'>
-      <a class='button button-primary' href='mailto:hello@jactai.com?subject=Get%20Website%20Now'>Get Website Now</a>
-      <a class='button button-secondary' href='mailto:hello@jactai.com?subject=Book%20Free%20Demo'>Book Free Demo</a>
-      <a class='button button-tertiary' href='web-development.html#ai-assistant'>Talk to AI</a>
+      <a class='button button-primary' href='mailto:hello@jactai.com?subject=Get%20Your%20Website'>Get Your Website</a>
+      <a class='button button-secondary' href='mailto:hello@jactai.com?subject=Contact%20Us'>Contact Us</a>
+      <a class='button button-tertiary' href='https://wa.me/918247463118?text=Hello%2C%20I%20want%20to%20build%20a%20website' target='_blank' rel='noopener noreferrer'>WhatsApp Now</a>
     </div>
   `;
   document.body.appendChild(strip);
@@ -71,10 +71,10 @@ const enhanceServiceCards = () => {
     if (card.querySelector('.card-cta-row')) return;
     const cardActions = document.createElement('div');
     cardActions.className = 'card-cta-row';
-    const primaryHref = index === 0 ? 'web-development.html' : index === 1 ? 'chatbots.html' : 'business.html';
+    const primaryHref = card.dataset.serviceLink || (index === 0 ? 'web-development.html' : index === 1 ? 'chatbots.html' : 'business.html');
     cardActions.innerHTML = `
-      <a class='button button-primary button-inline' href='${primaryHref}'>Explore service</a>
-      <a class='button button-secondary button-inline' href='mailto:hello@jactai.com?subject=Book%20Free%20Demo'>Book demo</a>
+      <a class='button button-primary button-inline' href='${primaryHref}'>Explore Service</a>
+      <a class='button button-secondary button-inline' href='mailto:hello@jactai.com?subject=Contact%20Us'>Contact Us</a>
     `;
     card.appendChild(cardActions);
   });
