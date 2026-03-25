@@ -23,26 +23,12 @@ if ('IntersectionObserver' in window) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 }
 
-const addFloatingWhatsapp = () => {
-  if (document.querySelector('.floating-whatsapp')) return;
+if (!document.querySelector('.floating-whatsapp')) {
   const button = document.createElement('a');
   button.className = 'floating-whatsapp';
-  button.href = 'https://wa.me/918247463118?text=Hello%2C%20I%20want%20to%20build%20a%20website';
+  button.href = 'https://wa.me/918247463118?text=Hello%2C%20I%20want%20to%20discuss%20a%20website%20or%20AI%20project';
   button.target = '_blank';
   button.rel = 'noopener noreferrer';
-  button.innerHTML = "<span class='whatsapp-icon'>💬</span><span class='whatsapp-copy'><strong>WhatsApp Now</strong><span>Quick response from JactAI</span></span>";
+  button.textContent = 'WhatsApp Us';
   document.body.appendChild(button);
-};
-
-addFloatingWhatsapp();
-
-
-const addStickyCta = () => {
-  if (document.querySelector('.sticky-cta')) return;
-  const bar = document.createElement('div');
-  bar.className = 'sticky-cta';
-  bar.innerHTML = "<span>Starting at ₹19,999</span><a href='contact.html'>Get Website</a>";
-  document.body.appendChild(bar);
-};
-
-addStickyCta();
+}
