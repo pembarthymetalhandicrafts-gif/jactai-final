@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900">
+<rect width="100%" height="100%" fill="#f5f7fb"/>
+<rect x="80" y="30" width="1280" height="60" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="110" y="68" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">Sri Durga Electrical Services</text>
+<text x="950" y="68" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#374151">Services   About   Contact</text>
+<rect x="80" y="110" width="1280" height="180" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="110" y="175" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#111827">Trusted Electricians for Homes & Shops</text>
+<text x="110" y="225" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#4b5563">Fast response, clear pricing, and safe electrical work.</text>
+<rect x="920" y="145" width="390" height="115" fill="#eff6ff" stroke="#bfdbfe" rx="8"/>
+<text x="945" y="190" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#1d4ed8">Call for Immediate Service</text>
+<text x="945" y="235" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#111827">+91 98765 43210</text>
+<text x="90" y="350" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#111827">Our Services</text>
+<rect x="80" y="370" width="1280" height="170" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="115" y="420" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#111827">• Home wiring and rewiring</text>
+<text x="115" y="448" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#111827">• MCB and DB board installation</text>
+<text x="115" y="476" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#111827">• Fan, light, and switch repairs</text>
+<text x="115" y="504" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#111827">• Inverter and UPS connection</text>
+<text x="115" y="532" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#111827">• Commercial electrical maintenance</text>
+<rect x="80" y="570" width="620" height="250" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<rect x="740" y="570" width="620" height="250" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="105" y="620" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">About Us</text>
+<text x="105" y="665" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#4b5563">Serving families and small businesses for 12+ years.</text>
+<text x="105" y="700" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#4b5563">We focus on safety, quality materials, and on-time work.</text>
+<text x="765" y="620" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Contact</text>
+<text x="765" y="665" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">Address: 2nd Main Road, Vijay Nagar</text>
+<text x="765" y="700" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">Phone: +91 98765 43210</text>
+<text x="765" y="735" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">Email: sridurgaelectrical@gmail.com</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900">
+<rect width="100%" height="100%" fill="#f5f7fb"/>
+<rect x="60" y="25" width="1320" height="65" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="95" y="67" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Premium Plots & Villas</text>
+<rect x="1180" y="40" width="160" height="35" fill="#2563eb" stroke="#2563eb" rx="6"/>
+<text x="1220" y="63" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#ffffff">Book Visit</text>
+<text x="70" y="145" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#111827">Find Your Next Property with Confidence</text>
+<text x="70" y="185" font-family="Arial, sans-serif" font-size="23" font-weight="normal" fill="#4b5563">Verified listings for gated community plots and ready-to-move villas.</text>
+<rect x="60" y="230" width="410" height="560" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<rect x="75" y="248" width="380" height="220" fill="#dbeafe" stroke="#e5e7eb" rx="5"/>
+<text x="85" y="500" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1d4ed8">Villa</text>
+<text x="85" y="535" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Green Meadows Villa</text>
+<text x="85" y="570" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">3 BHK · 2,150 sq.ft · Whitefield</text>
+<text x="85" y="615" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">₹1.25 Cr</text>
+<rect x="85" y="640" width="360" height="46" fill="#0f766e" stroke="#0f766e" rx="6"/>
+<text x="220" y="671" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Book Visit</text>
+<rect x="495" y="230" width="410" height="560" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<rect x="510" y="248" width="380" height="220" fill="#dcfce7" stroke="#e5e7eb" rx="5"/>
+<text x="520" y="500" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1d4ed8">Plot</text>
+<text x="520" y="535" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Sunrise Residency Plot</text>
+<text x="520" y="570" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">40x60 · Approved Layout · Sarjapur</text>
+<text x="520" y="615" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">₹78 Lakh</text>
+<rect x="520" y="640" width="360" height="46" fill="#0f766e" stroke="#0f766e" rx="6"/>
+<text x="655" y="671" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Book Visit</text>
+<rect x="930" y="230" width="410" height="560" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<rect x="945" y="248" width="380" height="220" fill="#fee2e2" stroke="#e5e7eb" rx="5"/>
+<text x="955" y="500" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#1d4ed8">Villa</text>
+<text x="955" y="535" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Lakeview Premium Villa</text>
+<text x="955" y="570" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">4 BHK · 2,850 sq.ft · Devanahalli</text>
+<text x="955" y="615" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">₹1.68 Cr</text>
+<rect x="955" y="640" width="360" height="46" fill="#0f766e" stroke="#0f766e" rx="6"/>
+<text x="1090" y="671" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Book Visit</text>
+<text x="62" y="845" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#6b7280">RERA Registered | Property Visits Available 7 Days a Week</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900">
+<rect width="100%" height="100%" fill="#f5f7fb"/>
+<rect x="70" y="28" width="1300" height="60" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="100" y="68" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#111827">Top Coaching Institute</text>
+<text x="1030" y="68" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#374151">Courses   Results   Contact</text>
+<rect x="70" y="110" width="1300" height="160" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="100" y="175" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#111827">Build Strong Fundamentals. Get Top Results.</text>
+<text x="100" y="220" font-family="Arial, sans-serif" font-size="23" font-weight="normal" fill="#4b5563">Trusted by parents for disciplined teaching and regular test practice.</text>
+<text x="80" y="330" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Courses</text>
+<rect x="70" y="350" width="420" height="160" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="88" y="395" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">Class 8-10 Foundation</text>
+<text x="88" y="435" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">Maths, Science, and Olympiad weekly tests.</text>
+<rect x="505" y="350" width="420" height="160" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="523" y="395" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">NEET Long Term</text>
+<text x="523" y="435" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">PCB preparation with chapter tests.</text>
+<rect x="940" y="350" width="420" height="160" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="958" y="395" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#111827">IIT-JEE Main + Advanced</text>
+<text x="958" y="435" font-family="Arial, sans-serif" font-size="20" font-weight="normal" fill="#4b5563">Concept-first classes and problem-solving practice.</text>
+<rect x="70" y="540" width="1300" height="150" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="95" y="585" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111827">Results</text>
+<rect x="95" y="605" width="390" height="70" fill="#f3f4f6" stroke="#e5e7eb" rx="8"/>
+<rect x="525" y="605" width="390" height="70" fill="#f3f4f6" stroke="#e5e7eb" rx="8"/>
+<rect x="955" y="605" width="390" height="70" fill="#f3f4f6" stroke="#e5e7eb" rx="8"/>
+<text x="120" y="648" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">96% students scored above 80%</text>
+<text x="555" y="648" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">42 NEET selections in 2025</text>
+<text x="985" y="648" font-family="Arial, sans-serif" font-size="22" font-weight="normal" fill="#111827">31 JEE 95+ percentile</text>
+<rect x="70" y="715" width="1300" height="160" fill="#ffffff" stroke="#e5e7eb" rx="8"/>
+<text x="95" y="758" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#111827">Contact Form</text>
+<rect x="95" y="775" width="580" height="32" fill="#ffffff" stroke="#d1d5db" rx="4"/>
+<text x="107" y="798" font-family="Arial, sans-serif" font-size="17" font-weight="normal" fill="#9ca3af">Student Name</text>
+<rect x="715" y="775" width="580" height="32" fill="#ffffff" stroke="#d1d5db" rx="4"/>
+<text x="727" y="798" font-family="Arial, sans-serif" font-size="17" font-weight="normal" fill="#9ca3af">Parent Phone</text>
+<rect x="95" y="815" width="580" height="32" fill="#ffffff" stroke="#d1d5db" rx="4"/>
+<text x="107" y="838" font-family="Arial, sans-serif" font-size="17" font-weight="normal" fill="#9ca3af">Select Course</text>
+<rect x="715" y="815" width="580" height="32" fill="#ffffff" stroke="#d1d5db" rx="4"/>
+<text x="727" y="838" font-family="Arial, sans-serif" font-size="17" font-weight="normal" fill="#9ca3af">Preferred Batch</text>
+<rect x="95" y="855" width="1180" height="16" fill="#2563eb" stroke="#2563eb" rx="4"/>
+</svg>

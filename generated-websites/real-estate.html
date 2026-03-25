@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Plots & Villas</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, Arial, sans-serif; background:#f9fafb; color:#111827; }
+    .container { width:min(1120px, 94%); margin:0 auto; }
+    header { background:#fff; border-bottom:1px solid #e5e7eb; }
+    .top { display:flex; justify-content:space-between; align-items:center; padding:16px 0; }
+    .brand { font-size:22px; font-weight:700; }
+    .btn { background:#2563eb; color:#fff; border:none; padding:10px 16px; border-radius:6px; font-weight:600; }
+    .hero { padding:30px 0 20px; }
+    .hero h1 { margin:0 0 10px; font-size:34px; }
+    .hero p { margin:0; color:#4b5563; }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; padding:18px 0 40px; }
+    .card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; }
+    .img { height:170px; background-size:cover; background-position:center; }
+    .cbody { padding:14px; }
+    .tag { font-size:12px; color:#1d4ed8; font-weight:600; margin-bottom:8px; }
+    .title { font-size:18px; margin:0 0 8px; }
+    .meta { font-size:14px; color:#4b5563; margin-bottom:10px; }
+    .price { font-size:20px; font-weight:700; margin-bottom:12px; }
+    .book { width:100%; background:#0f766e; color:white; border:none; padding:10px; border-radius:6px; font-weight:600; }
+    footer { background:#fff; border-top:1px solid #e5e7eb; padding:16px 0; color:#6b7280; font-size:13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top">
+      <div class="brand">Premium Plots & Villas</div>
+      <button class="btn">Book Visit</button>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <h1>Find Your Next Property with Confidence</h1>
+    <p>Verified listings for gated community plots and ready-to-move villas in high-growth locations.</p>
+  </section>
+
+  <section class="container">
+    <div class="grid">
+      <article class="card">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=60');"></div>
+        <div class="cbody">
+          <div class="tag">Villa</div>
+          <h3 class="title">Green Meadows Villa</h3>
+          <div class="meta">3 BHK · 2,150 sq.ft · Whitefield</div>
+          <div class="price">₹1.25 Cr</div>
+          <button class="book">Book Visit</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=60');"></div>
+        <div class="cbody">
+          <div class="tag">Plot</div>
+          <h3 class="title">Sunrise Residency Plot</h3>
+          <div class="meta">40x60 · Approved Layout · Sarjapur</div>
+          <div class="price">₹78 Lakh</div>
+          <button class="book">Book Visit</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=900&q=60');"></div>
+        <div class="cbody">
+          <div class="tag">Villa</div>
+          <h3 class="title">Lakeview Premium Villa</h3>
+          <div class="meta">4 BHK · 2,850 sq.ft · Devanahalli</div>
+          <div class="price">₹1.68 Cr</div>
+          <button class="book">Book Visit</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">RERA Registered | Property Visits Available 7 Days a Week</div>
+  </footer>
+</body>
+</html>
