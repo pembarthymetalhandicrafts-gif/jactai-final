@@ -35,3 +35,14 @@ const addFloatingWhatsapp = () => {
 };
 
 addFloatingWhatsapp();
+
+
+const addStickyCta = () => {
+  if (document.querySelector('.sticky-cta')) return;
+  const bar = document.createElement('div');
+  bar.className = 'sticky-cta';
+  bar.innerHTML = "<span>Starting at ₹19,999</span><a href='contact.html'>Get Website</a>";
+  document.body.appendChild(bar);
+};
+
+addStickyCta();
