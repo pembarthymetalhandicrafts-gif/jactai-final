@@ -1,0 +1,45 @@
+{
+  "tools": [
+    {
+      "name": "get_services",
+      "description": "Returns all JactAI services as structured JSON",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      },
+      "endpoint": {
+        "method": "GET",
+        "path": "/mcp/services"
+      }
+    },
+    {
+      "name": "get_pricing",
+      "description": "Returns all pricing plans and package details",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      },
+      "endpoint": {
+        "method": "GET",
+        "path": "/mcp/pricing"
+      }
+    },
+    {
+      "name": "submit_lead",
+      "description": "Captures user lead details from the website",
+      "input_schema": {
+        "type": "object",
+        "required": ["name", "phone", "requirement"],
+        "properties": {
+          "name": { "type": "string" },
+          "phone": { "type": "string" },
+          "requirement": { "type": "string" }
+        }
+      },
+      "endpoint": {
+        "method": "POST",
+        "path": "/mcp/contact"
+      }
+    }
+  ]
+}
