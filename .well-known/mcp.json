@@ -1,0 +1,9 @@
+{
+  "name": "JactAI MCP",
+  "description": "Website and AI services platform",
+  "tools": [
+    "get_services",
+    "get_pricing",
+    "submit_lead"
+  ]
+}
