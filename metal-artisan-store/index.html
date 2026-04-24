@@ -1,15 +1,128 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Metal Artisan crafts authentic handmade Pembarthy brass handicrafts from Telangana, India. Shop premium decor, puja items, and gifts." />
-    <meta name="keywords" content="pembarthy metal crafts, brass handicrafts india, handmade brass items, telangana handicrafts" />
-    <meta name="theme-color" content="#0b0b0f" />
+    <meta
+      name="description"
+      content="Metal Artisan crafts authentic handmade Pembarthy brass handicrafts from Telangana, India. Shop premium decor, puja items, and gifts."
+    />
     <title>Metal Artisan | Handmade Pembarthy Brass Handicrafts</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-ink text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="#home" class="brand">Metal Artisan</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        <nav class="nav" id="mainNav">
+          <a href="#home">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#blog">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <p class="tag">Handmade in Pembarthy, Telangana</p>
+            <h1>Timeless Brass Handicrafts for Modern Homes</h1>
+            <p>
+              Discover temple deepams, home decor pieces, custom metal art, and heritage gifts crafted by
+              skilled artisans.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#shop">Shop Collection</a>
+              <a class="btn btn-ghost" href="https://wa.me/919999999999" target="_blank" rel="noopener">WhatsApp Order</a>
+            </div>
+          </div>
+          <img
+            src="https://images.unsplash.com/photo-1516557070061-c3d1653fa646?auto=format&fit=crop&w=1200&q=80"
+            alt="Handmade brass crafts"
+          />
+        </div>
+      </section>
+
+      <section class="section" id="shop">
+        <div class="container">
+          <div class="section-head">
+            <h2>Featured Products</h2>
+            <div class="filters">
+              <button class="chip active" data-filter="all">All</button>
+              <button class="chip" data-filter="Temple Items">Temple Items</button>
+              <button class="chip" data-filter="Home Decor">Home Decor</button>
+              <button class="chip" data-filter="Custom Metal Art">Custom Metal Art</button>
+            </div>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+      </section>
+
+      <section class="section alt" id="about">
+        <div class="container two-col">
+          <img
+            src="https://images.unsplash.com/photo-1518991791750-749a0f5b7f84?auto=format&fit=crop&w=1200&q=80"
+            alt="Pembarthy brass artisan"
+          />
+          <div>
+            <h2>About Metal Artisan</h2>
+            <p>
+              We work directly with artisan families from Pembarthy village to preserve traditional brass
+              craftsmanship and deliver premium handcrafted products worldwide.
+            </p>
+            <ul>
+              <li>100% handcrafted brass pieces</li>
+              <li>Custom design support for homes and businesses</li>
+              <li>Secure shipping across India</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="blog">
+        <div class="container">
+          <h2>From Our Blog</h2>
+          <article class="blog-card">
+            <h3>History of Pembarthy Metal Crafts</h3>
+            <p>
+              Explore the roots of Pembarthy metal crafts and how brass artisans from Telangana shaped a
+              globally admired legacy.
+            </p>
+            <a href="#" aria-label="Read blog post">Read article →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt" id="contact">
+        <div class="container two-col">
+          <div>
+            <h2>Contact Us</h2>
+            <p>Have a custom order or bulk requirement? We’d love to help.</p>
+            <p><strong>Phone:</strong> +91 99999 99999</p>
+            <p><strong>Email:</strong> care@metalartisan.in</p>
+            <p><strong>Address:</strong> Pembarthy Village, Jangaon District, Telangana 506201, India</p>
+          </div>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly.');">
+            <input type="text" placeholder="Your name" required />
+            <input type="email" placeholder="Your email" required />
+            <textarea rows="4" placeholder="Your message" required></textarea>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Metal Artisan. All rights reserved.</p>
+        <a href="https://wa.me/919999999999" target="_blank" rel="noopener">Quick WhatsApp Support</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

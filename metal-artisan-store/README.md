@@ -1,18 +1,14 @@
-# Metal Artisan Ecommerce (React + Tailwind)
+# Metal Artisan Ecommerce (Static HTML/CSS/JS)
 
-Modern ecommerce storefront for handmade Pembarthy brass handicrafts.
+This store is now a **pure static website** and does not require React, Vite, or any build tool.
 
-## Pages
-- Home
-- Shop
-- Product detail
-- About
-- Contact
-- Blog listing
-- Blog post
+## Structure
+- `index.html`
+- `style.css`
+- `script.js`
 
-## Run
-```bash
-npm install
-npm run dev
-```
+## Run locally
+Open `index.html` directly in a browser.
+
+## cPanel deployment
+Upload all three files (and any assets you use) into `public_html`.
