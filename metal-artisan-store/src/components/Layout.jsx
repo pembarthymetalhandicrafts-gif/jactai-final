@@ -4,27 +4,24 @@ import { contact, whatsappLink } from '../data/content';
 const links = [
   ['/', 'Home'],
   ['/shop', 'Shop'],
-  ['/about', 'About'],
-  ['/contact', 'Contact'],
-  ['/blog', 'Blog']
+  ['/about', 'About Us'],
+  ['/contact', 'Contact Us']
 ];
 
 export default function Layout() {
   return (
-    <div className="min-h-screen bg-ink text-sand">
-      <header className="sticky top-0 z-50 border-b border-gold/20 bg-ink/95 backdrop-blur">
+    <div className="min-h-screen bg-[#fffdf8] text-[#3a2b1b]">
+      <header className="sticky top-0 z-50 border-b border-[#e8d6b7] bg-[#fffaf2]/95 backdrop-blur">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-          <Link to="/" className="text-xl font-semibold tracking-[0.16em] text-gold">
-            METAL ARTISAN
+          <Link to="/" className="text-xl font-semibold tracking-[0.16em] text-[#8e6426]">
+            JACTAI CRAFTS
           </Link>
           <div className="flex flex-wrap items-center gap-5 text-sm">
             {links.map(([to, label]) => (
               <NavLink
                 key={to}
                 to={to}
-                className={({ isActive }) =>
-                  `transition ${isActive ? 'text-gold' : 'text-sand/85 hover:text-gold'}`
-                }
+                className={({ isActive }) => `transition ${isActive ? 'text-[#8e6426]' : 'text-[#5a442a] hover:text-[#8e6426]'}`}
               >
                 {label}
               </NavLink>
@@ -41,23 +38,23 @@ export default function Layout() {
         href={whatsappLink}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-5 right-5 z-40 rounded-full bg-green-500 px-5 py-3 text-sm font-bold text-white shadow-2xl transition hover:scale-105"
+        className="fixed bottom-5 right-5 z-40 rounded-full bg-[#2f6f4f] px-5 py-3 text-sm font-bold text-white shadow-xl transition hover:scale-105"
       >
-        Order on WhatsApp
+        WhatsApp Order
       </a>
 
-      <footer className="border-t border-gold/20 bg-black/20 py-10">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 text-sm text-sand/75 md:grid-cols-3">
+      <footer className="border-t border-[#e8d6b7] bg-[#fff7ea] py-10">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 text-sm text-[#5a442a] md:grid-cols-3">
           <div>
-            <h3 className="font-semibold text-gold">Metal Artisan</h3>
-            <p className="mt-2">Authentic pembarthy metal crafts direct from Telangana workshops.</p>
+            <h3 className="font-semibold text-[#8e6426]">JactAI Crafts</h3>
+            <p className="mt-2">Premium handcrafted metal decor rooted in Indian artisan heritage.</p>
           </div>
           <div>
-            <h3 className="font-semibold text-gold">Quick Links</h3>
+            <h3 className="font-semibold text-[#8e6426]">Quick Links</h3>
             <ul className="mt-2 space-y-1">
               {links.map(([to, label]) => (
                 <li key={to}>
-                  <Link to={to} className="hover:text-gold">
+                  <Link to={to} className="hover:text-[#8e6426]">
                     {label}
                   </Link>
                 </li>
@@ -65,7 +62,7 @@ export default function Layout() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-gold">Contact</h3>
+            <h3 className="font-semibold text-[#8e6426]">Contact</h3>
             <p className="mt-2">Phone: {contact.phone}</p>
             <p>Email: {contact.email}</p>
             <p>{contact.address}</p>
