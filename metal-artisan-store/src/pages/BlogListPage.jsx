@@ -5,16 +5,26 @@ import { blogPosts } from '../data/content';
 export default function BlogListPage() {
   return (
     <>
-      <Seo title="Brass Craft Blog | Metal Artisan" description="Read educational stories and guides about authentic Pembarthy metal handicrafts." />
+      <Seo
+        title="Blog | Pembarthy Metal Crafts & Handmade Brass Items"
+        description="Read expert articles on pembarthy metal crafts, handmade brass items, and Telangana handicrafts heritage."
+      />
+
       <h1 className="text-4xl font-bold text-gold">Metal Artisan Blog</h1>
-      <p className="mt-3 text-sand/75">Stories that educate customers and celebrate Telangana heritage.</p>
-      <div className="mt-8 space-y-5">
+      <h2 className="mt-2 text-xl text-sand/80">Insights on pembarthy metal crafts and brass handicrafts India traditions</h2>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-2">
         {blogPosts.map((post) => (
-          <article key={post.slug} className="rounded-xl border border-gold/20 bg-zinc-900 p-5">
-            <h2 className="text-2xl font-semibold text-sand">{post.title}</h2>
-            <p className="mt-2 text-sm text-sand/55">{post.date}</p>
-            <p className="mt-3 text-sand/75">{post.excerpt}</p>
-            <Link to={`/blog/${post.slug}`} className="mt-3 inline-block text-gold underline">Read article</Link>
+          <article key={post.slug} className="overflow-hidden rounded-xl border border-gold/20 bg-zinc-900">
+            <img src={post.cover} alt={post.title} className="h-52 w-full object-cover" loading="lazy" />
+            <div className="p-5">
+              <h3 className="text-2xl font-semibold">{post.title}</h3>
+              <p className="mt-1 text-sm text-sand/60">{post.date}</p>
+              <p className="mt-3 text-sand/80">{post.excerpt}</p>
+              <Link to={`/blog/${post.slug}`} className="mt-4 inline-block text-gold underline">
+                Read Article
+              </Link>
+            </div>
           </article>
         ))}
       </div>
